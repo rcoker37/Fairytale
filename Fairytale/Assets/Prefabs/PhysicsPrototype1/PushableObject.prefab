@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50080003856148512}
   - component: {fileID: 114483693776815260}
   m_Layer: 0
-  m_Name: MovableClimbableObject
+  m_Name: PushableObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

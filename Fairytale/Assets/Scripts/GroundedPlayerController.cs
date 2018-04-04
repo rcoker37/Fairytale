@@ -5,7 +5,7 @@ using UnityEngine;
 public class GroundedPlayerController : PlayerController {
     public KeyCode[] MoveRightKeySet = new KeyCode[] { KeyCode.RightArrow, KeyCode.D };
     public KeyCode[] MoveLeftKeySet = new KeyCode[] { KeyCode.LeftArrow, KeyCode.A };
-    public float WalkSpeed = 10.0f;
+    public float WalkSpeed = 3.0f;
 
     private Rigidbody2D rb;
     private Animator anim;
