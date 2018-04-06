@@ -7,26 +7,21 @@ public class GroundedPlayerController : PlayerController {
     public KeyCode[] MoveLeftKeySet = new KeyCode[] { KeyCode.LeftArrow, KeyCode.A };
     public float WalkSpeed = 3.0f;
 
-    private Rigidbody2D rb;
-    private Animator anim;
+    private bool stoppedRight;
+    private bool stoppedLeft;
 
-	// Use this for initialization
-	void Start () {
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-	}
 	
 	// Update is called once per frame
 	void Update () {
         bool moveRightDown = IsKeySetDown(MoveRightKeySet); 
         bool moveLeftDown = IsKeySetDown(MoveLeftKeySet); 
 
-        if (moveRightDown && !moveLeftDown)
+        if (moveRightDown && !moveLeftDown && !colMan.IsColliding(Vector2.right, false, false))
         {
             rb.velocity = WalkSpeed * Vector2.right;
             anim.SetBool("Moving", true);
             anim.SetBool("FacingRight", true);
-        } else if (!moveRightDown && moveLeftDown)
+        } else if (!moveRightDown && moveLeftDown && !colMan.IsColliding(Vector2.left, false, false))
         { 
             rb.velocity = WalkSpeed * Vector2.left;
             anim.SetBool("Moving", true);
@@ -37,18 +32,5 @@ public class GroundedPlayerController : PlayerController {
             anim.SetBool("Moving", false);
         }
 	}
-
-    private bool IsKeySetDown(KeyCode[] keySet)
-    {
-        foreach (KeyCode keyCode in keySet)
-        {
-            if (Input.GetKey(keyCode))
-            {
-                return true; 
-            }
-        }
-
-        return false;
-    }
 
 }
