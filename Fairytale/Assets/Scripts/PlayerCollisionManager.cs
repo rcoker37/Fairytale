@@ -31,8 +31,11 @@ public class PlayerCollisionManager : MonoBehaviour {
             
             if (FacingDirection(otherCol, direction)) 
             {
-                if ((!requirePushable || otherCol.CompareTag("Pushable")) &&
-                    (!requireClimbable || otherCol.CompareTag("Climbable")))
+				Interactable interactable = otherCol.gameObject.GetComponent<Interactable>();
+				bool pushable = interactable != null && interactable.Pushable;
+				bool climbable = interactable != null && interactable.Climbable;
+				if ((!requirePushable || pushable) &&
+                    (!requireClimbable || climbable))
                 {
                     return otherCol;
                 }

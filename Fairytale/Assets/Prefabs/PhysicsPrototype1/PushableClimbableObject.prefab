@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61996560044763906}
   - component: {fileID: 50080003856148512}
   m_Layer: 0
-  m_Name: PushableObject
+  m_Name: PushableClimbableObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pushable: 1
-  Climbable: 0
+  Climbable: 1
 --- !u!212 &212540319618370020
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -136,7 +136,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5331836d581f4cc4e991afc734719bf4, type: 3}
-  m_Color: {r: 0.19777247, g: 0.22794116, b: 0.20047726, a: 1}
+  m_Color: {r: 0.12820655, g: 0.118079565, b: 0.41176468, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
