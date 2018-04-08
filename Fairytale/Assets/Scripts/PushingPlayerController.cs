@@ -42,7 +42,8 @@ public class PushingPlayerController : PlayerController {
     {
         Vector2 otherPos = otherCol.GetComponent<Rigidbody2D>().position;
         otherPos.x = transform.position.x + otherColRelX;
-        otherCol.GetComponent<Rigidbody2D>().position = otherPos;
-    }
+		//otherCol.GetComponent<Rigidbody2D>().position = otherPos;
+		otherCol.GetComponent<Rigidbody2D>().MovePosition(otherPos);
+	}
 
 }
