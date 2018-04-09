@@ -7,8 +7,8 @@ public class FallingPlayerController : PlayerController {
     public KeyCode[] MoveLeftKeySet = new KeyCode[] { KeyCode.LeftArrow, KeyCode.A };
     public float FallSpeedX = 2.0f;
 
-    public float MaxFallSpeed = 5.0f;
-    public float FallAcceleration = 50.0f;
+    public float MaxFallSpeed = 25.0f;
+    public float FallAcceleration = 0.6f;
 
     private void Update()
     {
@@ -34,14 +34,13 @@ public class FallingPlayerController : PlayerController {
     }
     
     void FixedUpdate () {
-		MoveHorizontal(FallSpeedX);
-
         Vector2 vel = rb.velocity;
         if (vel.y > -MaxFallSpeed)
         {
-            vel.y -= FallAcceleration * Time.fixedDeltaTime;
-			//rb.velocity = vel;
-			rb.MovePosition(rb.position + vel * Time.fixedDeltaTime);
+            vel.y -= FallAcceleration;
+			rb.velocity = vel;
 		}
+
+		MoveHorizontal(FallSpeedX);
 	}
 }

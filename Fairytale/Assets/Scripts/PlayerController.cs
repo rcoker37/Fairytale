@@ -34,7 +34,7 @@ public abstract class PlayerController : MonoBehaviour {
 
 		//todo
 		velocity.x = moveSpeed * Input.GetAxis("Horizontal");
-
+		
 		rb.velocity = velocity;
 		rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
 	}
