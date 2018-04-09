@@ -51,7 +51,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ec901941cb7b855489ef44bf510a4f4b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -133,17 +133,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218f0a23b92abba4c842f0a8423c4c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StompSound: {fileID: 0}
+  StompSound: {fileID: 8300000, guid: ec901941cb7b855489ef44bf510a4f4b, type: 3}
   MinVolume: 0
-  MaxVolume: 0
-  TimeBetweenStomps: 0
+  MaxVolume: 1
+  TimeBetweenStompsMean: 1.5
+  TimeBetweenStompsRange: 0.5
+  TotalStepsMean: 10
+  TotalStepsRange: 5
 --- !u!114 &114533903544727860
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1374011197307188}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56e1b3d3a0d664e4296d201af95c2e1b, type: 3}
   m_Name: 
