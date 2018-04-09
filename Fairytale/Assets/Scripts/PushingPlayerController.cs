@@ -26,7 +26,7 @@ public class PushingPlayerController : PlayerController {
 
 	// Update is called once per frame
 	void Update () {
-	    if (IsKeySetDown(MoveRightKeySet) && !IsKeySetDown(MoveLeftKeySet))
+	    /*if (IsKeySetDown(MoveRightKeySet) && !IsKeySetDown(MoveLeftKeySet))
         {
             rb.velocity = PushSpeed * Vector2.right;
         } else if (!IsKeySetDown(MoveRightKeySet) && IsKeySetDown(MoveLeftKeySet))
@@ -35,7 +35,7 @@ public class PushingPlayerController : PlayerController {
         } else
         {
             rb.velocity = Vector2.zero;
-        }
+        }*/
 	}
 
     private void FixedUpdate()
@@ -44,6 +44,8 @@ public class PushingPlayerController : PlayerController {
         otherPos.x = transform.position.x + otherColRelX;
 		//otherCol.GetComponent<Rigidbody2D>().position = otherPos;
 		otherCol.GetComponent<Rigidbody2D>().MovePosition(otherPos);
+
+		MoveHorizontal(PushSpeed);
 	}
 
 }

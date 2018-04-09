@@ -12,7 +12,7 @@ public class FallingPlayerController : PlayerController {
 
     private void Update()
     {
-        bool moveRightDown = IsKeySetDown(MoveRightKeySet); 
+        /*bool moveRightDown = IsKeySetDown(MoveRightKeySet); 
         bool moveLeftDown = IsKeySetDown(MoveLeftKeySet); 
 
         if (moveRightDown && !moveLeftDown && !colMan.IsColliding(Vector2.right, false, false))
@@ -30,15 +30,18 @@ public class FallingPlayerController : PlayerController {
             Vector2 vel = rb.velocity;
             vel.x = 0.0f;
             rb.velocity = vel;
-        }
+        }*/
     }
-    // Update is called once per frame
+    
     void FixedUpdate () {
+		MoveHorizontal(FallSpeedX);
+
         Vector2 vel = rb.velocity;
         if (vel.y > -MaxFallSpeed)
         {
             vel.y -= FallAcceleration * Time.fixedDeltaTime;
-            rb.velocity = vel;
-        }
+			//rb.velocity = vel;
+			rb.MovePosition(rb.position + vel * Time.fixedDeltaTime);
+		}
 	}
 }

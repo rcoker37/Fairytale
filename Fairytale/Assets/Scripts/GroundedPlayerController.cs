@@ -13,7 +13,7 @@ public class GroundedPlayerController : PlayerController {
 	
 	// Update is called once per frame
 	void Update () {
-        bool moveRightDown = IsKeySetDown(MoveRightKeySet); 
+		/*bool moveRightDown = IsKeySetDown(MoveRightKeySet); 
         bool moveLeftDown = IsKeySetDown(MoveLeftKeySet); 
 
         if (moveRightDown && !moveLeftDown && !colMan.IsColliding(Vector2.right, false, false))
@@ -30,7 +30,22 @@ public class GroundedPlayerController : PlayerController {
         {
             rb.velocity = Vector2.zero;
             anim.SetBool("Moving", false);
-        }
+        }*/
+
+		if (rb.velocity.x != 0)
+		{
+			anim.SetBool("Moving", true);
+			anim.SetBool("FacingRight", rb.velocity.x > 0);
+		}
+		else
+		{
+			anim.SetBool("Moving", false);
+		}
+	}
+
+	private void FixedUpdate()
+	{
+		MoveHorizontal(WalkSpeed);
 	}
 
 }

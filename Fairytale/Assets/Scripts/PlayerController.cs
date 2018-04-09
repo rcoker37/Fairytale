@@ -28,4 +28,15 @@ public abstract class PlayerController : MonoBehaviour {
         return false;
     }
 
+	public void MoveHorizontal(float moveSpeed)
+	{
+		Vector2 velocity = rb.velocity;
+
+		//todo
+		velocity.x = moveSpeed * Input.GetAxis("Horizontal");
+
+		rb.velocity = velocity;
+		rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+	}
+
 }
