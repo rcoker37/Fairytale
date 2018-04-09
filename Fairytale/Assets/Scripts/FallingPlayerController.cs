@@ -7,7 +7,7 @@ public class FallingPlayerController : PlayerController {
     public KeyCode[] MoveLeftKeySet = new KeyCode[] { KeyCode.LeftArrow, KeyCode.A };
     public float FallSpeedX = 2.0f;
 
-    public float MaxFallSpeed = 25.0f;
+    public float MaxFallSpeed = 10.0f;
     public float FallAcceleration = 0.6f;
 
     private void Update()
