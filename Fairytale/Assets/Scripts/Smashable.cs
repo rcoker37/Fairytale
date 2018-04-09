@@ -13,9 +13,8 @@ public class Smashable : MonoBehaviour {
 		rb = gameObject.GetComponent<Rigidbody2D>();
 	}
 
-	private void OnCollisionEnter2D()
+	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		print(rb.velocity.y);
 		if (Mathf.Abs(rb.velocity.y) >= SmashThreshold)
 		{
 			Smash();

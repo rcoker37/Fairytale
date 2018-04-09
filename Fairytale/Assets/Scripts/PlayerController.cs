@@ -37,5 +37,4 @@ public abstract class PlayerController : MonoBehaviour {
 		rb.velocity = velocity;
 		rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
 	}
-
 }

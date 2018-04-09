@@ -6,8 +6,9 @@ public class PlayerControllerManager : MonoBehaviour {
 
     public KeyCode[] ClimbKeySet = new KeyCode[] { KeyCode.LeftShift, KeyCode.RightShift };
     public KeyCode[] PushKeySet = new KeyCode[] { KeyCode.LeftControl, KeyCode.RightControl };
+	public KeyCode[] HideKeySet = new KeyCode[] { KeyCode.Space };
 
-    private static readonly int CONTACT_BUFFER_SIZE = 1024;
+	private static readonly int CONTACT_BUFFER_SIZE = 1024;
     private readonly ContactPoint2D[] contactBuffer = new ContactPoint2D[CONTACT_BUFFER_SIZE];
 
     private State activeState;
@@ -23,6 +24,7 @@ public class PlayerControllerManager : MonoBehaviour {
         FALLING,
         PUSHING,
         CLIMBING,
+		HIDING,
     }
 
     // Use this for initialization
@@ -66,7 +68,12 @@ public class PlayerControllerManager : MonoBehaviour {
             ChangeState(State.PUSHING);
             GetComponent<SpriteRenderer>().color = Color.green;
         }
-    }
+		else if (ShouldChangeToHiding())
+		{
+			ChangeState(State.HIDING);
+			GetComponent<SpriteRenderer>().color = Color.yellow;
+		}
+	}
 
     private void ChangeState(State newState)
     {
@@ -86,7 +93,10 @@ public class PlayerControllerManager : MonoBehaviour {
             case State.CLIMBING:
                 activeController = gameObject.AddComponent<ClimbingPlayerController>();
                 break;
-        }
+			case State.HIDING:
+				activeController = gameObject.AddComponent<HidingPlayerController>();
+				break;
+		}
     }
 
     private bool ShouldChangeToGrounded()
@@ -106,7 +116,10 @@ public class PlayerControllerManager : MonoBehaviour {
             case State.CLIMBING:
                 return false;
                 break;
-            default:
+			case State.HIDING:
+				return !activeController.IsKeySetDown(HideKeySet);
+                break;
+			default:
                 return false;
                 break;
         }
@@ -127,7 +140,10 @@ public class PlayerControllerManager : MonoBehaviour {
             case State.CLIMBING:
                 return !activeController.IsKeySetDown(ClimbKeySet);
                 break;
-            default:
+			case State.HIDING:
+				return false;
+				break;
+			default:
                 return false;
                 break;
         }
@@ -150,7 +166,10 @@ public class PlayerControllerManager : MonoBehaviour {
             case State.CLIMBING:
                 return false;
                 break;
-            default:
+			case State.HIDING:
+				return false;
+				break;
+			default:
                 return false;
                 break;
         }
@@ -174,9 +193,37 @@ public class PlayerControllerManager : MonoBehaviour {
             case State.CLIMBING:
                 return false;
                 break;
-            default:
+			case State.HIDING:
+				return false;
+				break;
+			default:
                 return false;
                 break;
         }
     }
+
+	private bool ShouldChangeToHiding()
+	{
+		switch (activeState)
+		{
+			case State.GROUNDED:
+				return colMan.CanHide() && activeController.IsKeySetDown(HideKeySet);
+				break;
+			case State.FALLING:
+				return false;
+				break;
+			case State.PUSHING:
+				return false;
+				break;
+			case State.CLIMBING:
+				return false;
+				break;
+			case State.HIDING:
+				return false;
+				break;
+			default:
+				return false;
+				break;
+		}
+	}
 }

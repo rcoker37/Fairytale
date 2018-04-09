@@ -59,5 +59,17 @@ public class PlayerCollisionManager : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision)
     {
         otherCols.Remove(collision);
-    }
+	}
+
+	public bool CanHide()
+	{
+		foreach(Collider2D col in otherCols.Keys)
+		{
+			if (col.gameObject.CompareTag("HidingSpot"))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }
