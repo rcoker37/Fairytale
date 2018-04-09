@@ -45,6 +45,10 @@ public class GroundedPlayerController : PlayerController {
 
 	private void FixedUpdate()
 	{
+		Vector2 vel = rb.velocity;
+		vel.y = 0;
+		rb.velocity = vel;
+
 		MoveHorizontal(WalkSpeed);
 	}
 

@@ -21,7 +21,11 @@ public class PushingPlayerController : PlayerController {
             otherCol = colMan.GetColliding(Vector2.left, true, false);
         }
 
-        otherColRelX = otherCol.GetComponent<Rigidbody2D>().position.x - transform.position.x - 0.1f;
+		float otherX = otherCol.GetComponent<Rigidbody2D>().position.x;
+		int side = otherX < transform.position.x ? 1 : -1;
+        float sideOffset = 0.1f * side;
+
+		otherColRelX = otherX - transform.position.x;// + sideOffset;
     }
 
 	// Update is called once per frame
@@ -41,7 +45,8 @@ public class PushingPlayerController : PlayerController {
     private void FixedUpdate()
     {
         Vector2 otherPos = otherCol.GetComponent<Rigidbody2D>().position;
-        otherPos.x = transform.position.x + otherColRelX;
+		float offset = PushSpeed * Input.GetAxis("Horizontal") * Time.fixedDeltaTime;
+		otherPos.x = transform.position.x + otherColRelX + offset;
 		//otherCol.GetComponent<Rigidbody2D>().position = otherPos;
 		otherCol.GetComponent<Rigidbody2D>().MovePosition(otherPos);
 
