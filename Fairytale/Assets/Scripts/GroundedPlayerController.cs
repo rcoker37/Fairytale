@@ -34,12 +34,12 @@ public class GroundedPlayerController : PlayerController {
 
 		if (rb.velocity.x != 0)
 		{
-			anim.SetBool("Moving", true);
-			anim.SetBool("FacingRight", rb.velocity.x > 0);
+			anim.SetFloat("Moving", 1.0f);
+            anim.SetFloat("Facing", rb.velocity.x / Mathf.Abs(rb.velocity.x));
 		}
 		else
 		{
-			anim.SetBool("Moving", false);
+			anim.SetFloat("Moving", -1.0f);
 		}
 	}
 

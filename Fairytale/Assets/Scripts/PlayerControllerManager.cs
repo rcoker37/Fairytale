@@ -8,6 +8,8 @@ public class PlayerControllerManager : MonoBehaviour {
     public KeyCode[] PushKeySet = new KeyCode[] { KeyCode.LeftControl, KeyCode.RightControl };
 	public KeyCode[] HideKeySet = new KeyCode[] { KeyCode.Space };
 
+    public bool PlayerControllerDisabled;
+
 	private static readonly int CONTACT_BUFFER_SIZE = 1024;
     private readonly ContactPoint2D[] contactBuffer = new ContactPoint2D[CONTACT_BUFFER_SIZE];
 
@@ -17,13 +19,14 @@ public class PlayerControllerManager : MonoBehaviour {
 
     private Rigidbody2D rb;
     private Collider2D col;
+    private Animator anim;
 
     public enum State
     {
         GROUNDED,
         FALLING,
-        PUSHING,
         CLIMBING,
+        PUSHING,
 		HIDING,
     }
 
@@ -32,14 +35,15 @@ public class PlayerControllerManager : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         colMan = GetComponent<PlayerCollisionManager>();
+        anim = GetComponent<Animator>();
 
         activeController = GetComponent<PlayerController>();
         activeState = State.GROUNDED;
 	}
 	
 	// Update is called once per frame
-	void Update () { 
-		
+	void Update () {
+        activeController.enabled = !PlayerControllerDisabled;	
 	}
 
     private void FixedUpdate()
@@ -77,6 +81,12 @@ public class PlayerControllerManager : MonoBehaviour {
 
     private void ChangeState(State newState)
     {
+        anim.SetInteger("PreviousState", (int)activeState);
+        anim.SetInteger("NextState", (int)newState);
+        anim.SetBool("DirtyBit", true);
+
+        print(activeState.ToString() + " -> " + newState.ToString());
+
         Destroy(activeController);
         activeState = newState;
         switch (newState)

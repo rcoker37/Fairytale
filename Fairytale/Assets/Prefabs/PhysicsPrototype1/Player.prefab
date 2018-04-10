@@ -339,6 +339,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClimbKeySet: 300100002f010000
   PushKeySet: 3201000031010000
+  HideKeySet: 20000000
+  PlayerControllerDisabled: 0
 --- !u!114 &114995375636788578
 MonoBehaviour:
   m_ObjectHideFlags: 1

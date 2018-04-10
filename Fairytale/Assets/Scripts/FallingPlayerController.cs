@@ -31,6 +31,11 @@ public class FallingPlayerController : PlayerController {
             vel.x = 0.0f;
             rb.velocity = vel;
         }*/
+
+        if (rb.velocity.x != 0.0f)
+        {
+            anim.SetFloat("Facing", rb.velocity.x / Mathf.Abs(rb.velocity.x));
+        } 
     }
     
     void FixedUpdate () {
