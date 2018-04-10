@@ -56,26 +56,21 @@ public class PlayerControllerManager : MonoBehaviour {
         if (ShouldChangeToGrounded())
         {
             ChangeState(State.GROUNDED);
-            GetComponent<SpriteRenderer>().color = Color.red;
         } else if (ShouldChangeToFalling())
         {
             ChangeState(State.FALLING);
-            GetComponent<SpriteRenderer>().color = Color.black;
         }
         else if (ShouldChangeToClimbing())
         {
             ChangeState(State.CLIMBING);
-            GetComponent<SpriteRenderer>().color = Color.blue;
         }
         else if (ShouldChangeToPushing())
         {
             ChangeState(State.PUSHING);
-            GetComponent<SpriteRenderer>().color = Color.green;
         }
 		else if (ShouldChangeToHiding())
 		{
 			ChangeState(State.HIDING);
-			GetComponent<SpriteRenderer>().color = Color.yellow;
 		}
 	}
 
