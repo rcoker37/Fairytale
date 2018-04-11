@@ -129,7 +129,7 @@ public class PlayerControllerManager : MonoBehaviour {
                     //rb.MovePosition(new Vector2(colMan.GetColliding(Vector2.left, false, true).bounds.max.x - col.bounds.extents.x,
                     //                            colMan.GetColliding(Vector2.left, false, true).bounds.max.y + col.bounds.extents.y));
                     return true;
-                } else if (colMan.IsColliding(Vector2.right, false, true) && colMan.GetColliding(Vector2.right, false, true).bounds.max.y < col.bounds.center.y)
+                } else if (colMan.IsColliding(Vector2.right, false, true) && colMan.GetColliding(Vector2.right, false, true).bounds.max.y < col.bounds.min.y)
                 {
                     //rb.MovePosition(new Vector2(rb.position.x + ClimbDeltaX, rb.position.y + ClimbDeltaY)); return true;
                     return true;

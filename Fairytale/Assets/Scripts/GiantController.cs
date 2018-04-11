@@ -21,9 +21,6 @@ public class GiantController : MonoBehaviour {
         sc = GetComponent<StompController>();
 	}
 
-    {
-    }
-
 
     public void Smash()
     {
