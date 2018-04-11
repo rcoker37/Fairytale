@@ -52,4 +52,9 @@ public class GroundedPlayerController : PlayerController {
 		MoveHorizontal(WalkSpeed);
 	}
 
+    private void OnDisable()
+    {
+        rb.velocity = Vector2.zero;
+    }
+
 }

@@ -10,6 +10,9 @@ public class PlayerControllerManager : MonoBehaviour {
 
     public bool PlayerControllerDisabled;
 
+    public float ClimbDeltaX = 1.0f;
+    public float ClimbDeltaY = 1.0f;
+
 	private static readonly int CONTACT_BUFFER_SIZE = 1024;
     private readonly ContactPoint2D[] contactBuffer = new ContactPoint2D[CONTACT_BUFFER_SIZE];
 
@@ -53,6 +56,10 @@ public class PlayerControllerManager : MonoBehaviour {
 
     private void CheckForStateChange()
     {
+        if (!activeController.enabled) {
+            return;
+        }
+
         if (ShouldChangeToGrounded())
         {
             ChangeState(State.GROUNDED);
@@ -119,6 +126,17 @@ public class PlayerControllerManager : MonoBehaviour {
                        (!activeController.IsKeySetDown(PushKeySet));
                 break;
             case State.CLIMBING:
+                if (colMan.IsColliding(Vector2.left, false, true) && colMan.GetColliding(Vector2.left, false, true).bounds.max.y < col.bounds.min.y)
+                {
+
+                    //rb.MovePosition(new Vector2(colMan.GetColliding(Vector2.left, false, true).bounds.max.x - col.bounds.extents.x,
+                    //                            colMan.GetColliding(Vector2.left, false, true).bounds.max.y + col.bounds.extents.y));
+                    return true;
+                } else if (colMan.IsColliding(Vector2.right, false, true) && colMan.GetColliding(Vector2.right, false, true).bounds.max.y < col.bounds.center.y)
+                {
+                    //rb.MovePosition(new Vector2(rb.position.x + ClimbDeltaX, rb.position.y + ClimbDeltaY)); return true;
+                    return true;
+                }
                 return false;
                 break;
 			case State.HIDING:
