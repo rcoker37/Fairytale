@@ -12,11 +12,12 @@ public class PlayerCollisionManager : MonoBehaviour {
 
     private bool collidingClimbableLeft;
     private bool collidingClimbableRight;
-	private bool grounded = false;
-
-	// Use this for initialization
-	void Start () {
-        col = GetComponent<Collider2D>();		
+	private List<GameObject> grounds;
+	
+	private void Start ()
+	{
+        col = GetComponent<Collider2D>();
+		grounds = new List<GameObject>();
 	}
 	
     public bool IsColliding(Vector2 direction, bool requirePushable, bool requireClimbable) 
@@ -61,28 +62,54 @@ public class PlayerCollisionManager : MonoBehaviour {
     {
         otherCols.Remove(collision);
 	}
+	
+	private float NormalDot(ContactPoint2D contact)
+	{
+		Vector2 normal = contact.normal;
+		return Vector2.Dot(normal, Vector2.down);
+	}
 
+	private float[] NormalDotList(Collision2D collision)
+	{
+		float[] dots = new float[collision.contacts.Length];
+		for (int i = 0; i < collision.contacts.Length; i++)
+		{
+			dots[i] = NormalDot(collision.contacts[i]);
+		}
+
+		return dots;
+	}
+	
 	private bool IsGround(Collision2D collision)
 	{
-		return FacingDirection(collision.collider, Vector2.down); //TODO: fix
+		if (collision == null) return false;
+        float[] dots = NormalDotList(collision);
+        foreach (float dot in dots)
+        {
+            if (dot < 0)
+            {
+                return true;
+            }
+        }
+        return false;
+		//return FacingDirection(collision.collider, Vector2.down); //TODO: fix
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (IsGround(collision))
 		{
-			grounded = true;
+			grounds.Add(collision.gameObject);
 		}
 
-		print("HIT " + grounded);
+		//print("HIT " + IsGrounded() + " with " + collision.gameObject.name);
 	}
 
 	private void OnCollisionExit2D(Collision2D collision)
 	{
-		if (IsGround(collision))
-		{
-			grounded = false;
-		}
+		grounds.Remove(collision.gameObject);
+
+		//print("UNHIT " + IsGrounded() + " with " + collision.gameObject.name);
 	}
 
 	public bool CanHide()
@@ -99,6 +126,6 @@ public class PlayerCollisionManager : MonoBehaviour {
 
 	public bool IsGrounded()
 	{
-		return grounded;
+		return grounds.Count > 0;
 	}
 }
