@@ -117,14 +117,11 @@ public class PlayerControllerManager : MonoBehaviour {
         {
             case State.GROUNDED:
                 return false;
-                break;
             case State.FALLING:
 				return colMan.IsGrounded();
-                break;
             case State.PUSHING:
                 return (!colMan.IsColliding(Vector2.left, true, false) && !colMan.IsColliding(Vector2.right, true, false)) ||
                        (!activeController.IsKeySetDown(PushKeySet));
-                break;
             case State.CLIMBING:
                 if (colMan.IsColliding(Vector2.left, false, true) && colMan.GetColliding(Vector2.left, false, true).bounds.max.y < col.bounds.min.y)
                 {
@@ -138,13 +135,10 @@ public class PlayerControllerManager : MonoBehaviour {
                     return true;
                 }
                 return false;
-                break;
 			case State.HIDING:
 				return !activeController.IsKeySetDown(HideKeySet);
-                break;
 			default:
                 return false;
-                break;
         }
     }
 
@@ -153,22 +147,16 @@ public class PlayerControllerManager : MonoBehaviour {
         switch (activeState) {
             case State.GROUNDED:
                 return !colMan.IsGrounded();
-                break;
             case State.FALLING:
                 return false;
-                break;
             case State.PUSHING:
                 return !colMan.IsGrounded();
-                break;
             case State.CLIMBING:
                 return !activeController.IsKeySetDown(ClimbKeySet);
-                break;
 			case State.HIDING:
 				return false;
-				break;
 			default:
                 return false;
-                break;
         }
     }
 
@@ -179,22 +167,16 @@ public class PlayerControllerManager : MonoBehaviour {
             case State.GROUNDED:
                 return (colMan.IsColliding(Vector2.left, true, false) || colMan.IsColliding(Vector2.right, true, false)) &&
                        (activeController.IsKeySetDown(PushKeySet));
-                break;
             case State.FALLING:
                 return false;
-                break;
             case State.PUSHING:
                 return false;
-                break;
             case State.CLIMBING:
                 return false;
-                break;
 			case State.HIDING:
 				return false;
-				break;
 			default:
                 return false;
-                break;
         }
     }
 
@@ -205,23 +187,17 @@ public class PlayerControllerManager : MonoBehaviour {
             case State.GROUNDED:
                 return activeController.IsKeySetDown(ClimbKeySet) &&
                        (colMan.IsColliding(Vector2.left, false, true) || colMan.IsColliding(Vector2.right, false, true));
-                break;
             case State.FALLING:
                 return activeController.IsKeySetDown(ClimbKeySet) &&
                        (colMan.IsColliding(Vector2.left, false, true) || colMan.IsColliding(Vector2.right, false, true));
-                break;
             case State.PUSHING:
                 return false;
-                break;
             case State.CLIMBING:
                 return false;
-                break;
 			case State.HIDING:
 				return false;
-				break;
 			default:
                 return false;
-                break;
         }
     }
 
@@ -231,22 +207,16 @@ public class PlayerControllerManager : MonoBehaviour {
 		{
 			case State.GROUNDED:
 				return colMan.CanHide() && activeController.IsKeySetDown(HideKeySet);
-				break;
 			case State.FALLING:
 				return false;
-				break;
 			case State.PUSHING:
 				return false;
-				break;
 			case State.CLIMBING:
 				return false;
-				break;
 			case State.HIDING:
 				return false;
-				break;
 			default:
 				return false;
-				break;
 		}
 	}
 }
