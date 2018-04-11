@@ -53,7 +53,8 @@ public class PlayerCollisionManager : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        otherCols.Add(collision, transform.position - collision.bounds.center);
+        //otherCols.Add(collision, transform.position - collision.bounds.center);
+		otherCols[collision] = transform.position - collision.bounds.center;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
