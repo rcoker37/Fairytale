@@ -12,13 +12,13 @@ public class PlayerCollisionManager : MonoBehaviour {
 
     private bool collidingClimbableLeft;
     private bool collidingClimbableRight;
+	private bool grounded = false;
 
 	// Use this for initialization
 	void Start () {
         col = GetComponent<Collider2D>();		
 	}
 	
-
     public bool IsColliding(Vector2 direction, bool requirePushable, bool requireClimbable) 
     {
         return GetColliding(direction, requirePushable, requireClimbable) != null;
@@ -62,6 +62,29 @@ public class PlayerCollisionManager : MonoBehaviour {
         otherCols.Remove(collision);
 	}
 
+	private bool IsGround(Collision2D collision)
+	{
+		return FacingDirection(collision.collider, Vector2.down); //TODO: fix
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (IsGround(collision))
+		{
+			grounded = true;
+		}
+
+		print("HIT " + grounded);
+	}
+
+	private void OnCollisionExit2D(Collision2D collision)
+	{
+		if (IsGround(collision))
+		{
+			grounded = false;
+		}
+	}
+
 	public bool CanHide()
 	{
 		foreach(Collider2D col in otherCols.Keys)
@@ -72,5 +95,10 @@ public class PlayerCollisionManager : MonoBehaviour {
 			}
 		}
 		return false;
+	}
+
+	public bool IsGrounded()
+	{
+		return grounded;
 	}
 }

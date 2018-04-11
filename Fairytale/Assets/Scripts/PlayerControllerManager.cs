@@ -119,7 +119,7 @@ public class PlayerControllerManager : MonoBehaviour {
                 return false;
                 break;
             case State.FALLING:
-                return colMan.IsColliding(Vector2.down, false, false);
+				return colMan.IsGrounded();
                 break;
             case State.PUSHING:
                 return (!colMan.IsColliding(Vector2.left, true, false) && !colMan.IsColliding(Vector2.right, true, false)) ||
@@ -152,13 +152,13 @@ public class PlayerControllerManager : MonoBehaviour {
     {
         switch (activeState) {
             case State.GROUNDED:
-                return !colMan.IsColliding(Vector2.down, false, false);
+                return !colMan.IsGrounded();
                 break;
             case State.FALLING:
                 return false;
                 break;
             case State.PUSHING:
-                return !colMan.IsColliding(Vector2.down, false, false);
+                return !colMan.IsGrounded();
                 break;
             case State.CLIMBING:
                 return !activeController.IsKeySetDown(ClimbKeySet);
