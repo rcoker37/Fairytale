@@ -26,16 +26,6 @@ public class StompController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!stomping && Input.GetKeyDown(KeyCode.R))
-        {
-            StartStomp(); 
-        }
-
-        if (stomping && Input.GetKeyDown(KeyCode.T))
-        {
-            StopStomp();
-        }
-
         if (stomping)
         {
             timeToNextStomp -= Time.deltaTime;
@@ -50,7 +40,7 @@ public class StompController : MonoBehaviour {
         }	
 	}
 
-    void StartStomp()
+    public void StartStomp()
     {
         timeBetweenStomps = Random.Range(TimeBetweenStompsMean - TimeBetweenStompsRange / 2.0f, 
                                          TimeBetweenStompsMean + TimeBetweenStompsRange / 2.0f);

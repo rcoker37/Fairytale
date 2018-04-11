@@ -13,24 +13,21 @@ public class GiantController : MonoBehaviour {
     private float stompSpeed;
     private float panVelocity;
 
+    private StompController sc;
+
 	// Use this for initialization
 	void Start () {
         audio = GetComponent<AudioSource>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	    if (approaching)
-        {
-            audio.volume += volumeDelta;
-        }	
+        sc = GetComponent<StompController>();
 	}
 
-    void PlaySound(AudioClip audioClip)
     {
-        audio.Stop();
-        audio.clip = audioClip;
-        audio.Play();
+    }
+
+
+    public void Smash()
+    {
+        sc.StartStomp();
     }
 
 

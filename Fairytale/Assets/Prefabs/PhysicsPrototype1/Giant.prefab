@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 82360748075488734}
   - component: {fileID: 114533903544727860}
   - component: {fileID: 114401246315537762}
+  - component: {fileID: 114005981236289670}
   m_Layer: 0
   m_Name: Giant
-  m_TagString: Untagged
+  m_TagString: Giant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,6 +123,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114005981236289670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1374011197307188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcda013499308ae49b64ef5da05d461b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StompingSound: {fileID: 0}
 --- !u!114 &114401246315537762
 MonoBehaviour:
   m_ObjectHideFlags: 1
