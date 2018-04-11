@@ -46,8 +46,8 @@ GameObject:
   - component: {fileID: 61675790082354134}
   - component: {fileID: 114274413659634546}
   - component: {fileID: 82758996290909398}
-  - component: {fileID: 114503556665278610}
   - component: {fileID: 114641886377892052}
+  - component: {fileID: 114761835886619210}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -204,7 +204,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a87a9026e2ace7548afbef40941c7508, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b000084a97e7b4f4599189d22ed9162f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -303,18 +303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f61ff16d4df8f640ac20597c8927dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114503556665278610
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1627192850298252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0f9dfbb12f5abd4490d49d0427f98ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShouldPlaySound: 0
 --- !u!114 &114641886377892052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -343,6 +331,19 @@ MonoBehaviour:
   PlayerControllerDisabled: 0
   ClimbDeltaX: 1
   ClimbDeltaY: 1
+--- !u!114 &114761835886619210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1627192850298252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f9dfbb12f5abd4490d49d0427f98ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShouldPlaySound: 0
+  ActiveAudioClip: {fileID: 0}
 --- !u!114 &114995375636788578
 MonoBehaviour:
   m_ObjectHideFlags: 1

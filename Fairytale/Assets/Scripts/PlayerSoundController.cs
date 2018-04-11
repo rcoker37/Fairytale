@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StepSoundController : MonoBehaviour {
+public class PlayerSoundController : MonoBehaviour {
+
     public bool ShouldPlaySound;
+    public AudioClip ActiveAudioClip;
+
 
     private AudioSource audio;
+
 
 	// Use this for initialization
 	void Start () {
@@ -17,8 +21,9 @@ public class StepSoundController : MonoBehaviour {
 	    if (ShouldPlaySound)
         {
             audio.Stop();
+            audio.clip = ActiveAudioClip;
             audio.Play();
-            ShouldPlaySound = false;
-        }	
+        } 
+
 	}
 }

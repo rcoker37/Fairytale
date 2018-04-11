@@ -7,12 +7,14 @@ public abstract class PlayerController : MonoBehaviour {
     protected Rigidbody2D rb;
     protected Animator anim;
     protected PlayerCollisionManager colMan;
+    protected AudioSource audio;
 
     protected void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         colMan = GetComponent<PlayerCollisionManager>();
+        audio = GetComponent<AudioSource>();
     }
 
     public bool IsKeySetDown(KeyCode[] keySet)

@@ -82,6 +82,13 @@ AnimationClip:
     path: 
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0.43333334
+      value: {fileID: 8300000, guid: b000084a97e7b4f4599189d22ed9162f, type: 3}
+    attribute: ActiveAudioClip
+    path: 
+    classID: 114
+    script: {fileID: 11500000, guid: f0f9dfbb12f5abd4490d49d0427f98ed, type: 3}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -103,6 +110,13 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 0
+      attribute: 4042204290
+      script: {fileID: 11500000, guid: f0f9dfbb12f5abd4490d49d0427f98ed, type: 3}
+      typeID: 114
+      customType: 0
+      isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 21300000, guid: 77ca47897b49e5b48be3faec653aeeb1, type: 3}
     - {fileID: 21300000, guid: e7340881e7883ad49ac38cc144fe75b2, type: 3}
@@ -114,6 +128,7 @@ AnimationClip:
     - {fileID: 21300000, guid: 94cd16b6e48e13e44b5a4f4770d34702, type: 3}
     - {fileID: 21300000, guid: 807a04ee4de7d79488059ccb4150a9e2, type: 3}
     - {fileID: 21300000, guid: 1b2c2f76955dfd848889c2da56fb177d, type: 3}
+    - {fileID: 8300000, guid: b000084a97e7b4f4599189d22ed9162f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

@@ -41,6 +41,7 @@ public class GroundedPlayerController : PlayerController {
 		{
 			anim.SetFloat("Moving", -1.0f);
 		}
+
 	}
 
 	private void FixedUpdate()
