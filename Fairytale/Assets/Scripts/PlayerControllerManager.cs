@@ -135,17 +135,6 @@ public class PlayerControllerManager : MonoBehaviour {
                 return (!colMan.IsColliding(Vector2.left, true, false) && !colMan.IsColliding(Vector2.right, true, false)) ||
                        (!activeController.IsKeySetDown(PushKeySet));
             case State.CLIMBING:
-                if (colMan.IsColliding(Vector2.left, false, true) && colMan.GetColliding(Vector2.left, false, true).bounds.max.y < col.bounds.min.y)
-                {
-
-                    //rb.MovePosition(new Vector2(colMan.GetColliding(Vector2.left, false, true).bounds.max.x - col.bounds.extents.x,
-                    //                            colMan.GetColliding(Vector2.left, false, true).bounds.max.y + col.bounds.extents.y));
-                    return true;
-                } else if (colMan.IsColliding(Vector2.right, false, true) && colMan.GetColliding(Vector2.right, false, true).bounds.max.y < col.bounds.min.y)
-                {
-                    //rb.MovePosition(new Vector2(rb.position.x + ClimbDeltaX, rb.position.y + ClimbDeltaY)); return true;
-                    return true;
-                }
                 return false;
 			case State.HIDING:
 				return !activeController.IsKeySetDown(HideKeySet);
@@ -164,7 +153,25 @@ public class PlayerControllerManager : MonoBehaviour {
             case State.PUSHING:
                 return !colMan.IsGrounded();
             case State.CLIMBING:
-                return !activeController.IsKeySetDown(ClimbKeySet);
+                if (colMan.IsColliding(Vector2.left, false, true) && colMan.GetColliding(Vector2.left, false, true).bounds.max.y < col.bounds.center.y)
+                {
+
+                    rb.position = new Vector2(colMan.GetColliding(Vector2.left, false, true).bounds.max.x - col.bounds.extents.x,
+                                              colMan.GetColliding(Vector2.left, false, true).bounds.max.y + col.bounds.extents.y);
+                    col.enabled = false;
+                    col.enabled = true;
+                    return true;
+                } else if (colMan.IsColliding(Vector2.right, false, true) && colMan.GetColliding(Vector2.right, false, true).bounds.max.y < col.bounds.center.y)
+                {
+                    rb.position = new Vector2(colMan.GetColliding(Vector2.right, false, true).bounds.min.x + col.bounds.extents.x,
+                                              colMan.GetColliding(Vector2.right, false, true).bounds.max.y + col.bounds.extents.y);
+                    col.enabled = false;
+                    col.enabled = true;
+                    return true;
+                } else
+                {
+                    return !activeController.IsKeySetDown(ClimbKeySet);
+                }
 			case State.HIDING:
 				return false;
 			default:

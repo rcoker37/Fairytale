@@ -446,10 +446,13 @@ MonoBehaviour:
   StompSound: {fileID: 8300000, guid: ec901941cb7b855489ef44bf510a4f4b, type: 3}
   MinVolume: 0
   MaxVolume: 1
-  TimeBetweenStompsMean: 1.5
-  TimeBetweenStompsRange: 0.5
-  TotalStepsMean: 10
-  TotalStepsRange: 5
+  TimeBeforeStartMean: 3
+  TimeBeforeStartRange: 2
+  TimeBetweenStompsMean: 4
+  TimeBetweenStompsRange: 0
+  TotalStepsMean: 5
+  TotalStepsRange: 2
+  stomping: 0
 --- !u!114 &638375130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,7 +475,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ec901941cb7b855489ef44bf510a4f4b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5b4a99744e3f6f84dabcb6cc4a1c6596, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
