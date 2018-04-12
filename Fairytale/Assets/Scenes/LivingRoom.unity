@@ -567,24 +567,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218f0a23b92abba4c842f0a8423c4c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StompSound: {fileID: 8300000, guid: ec901941cb7b855489ef44bf510a4f4b, type: 3}
+  StompSound: {fileID: 8300000, guid: f2a24adb8f8be4748a32d120dd540091, type: 3}
   MinVolume: 0
   MaxVolume: 1
-<<<<<<< HEAD
-  TimeBeforeStartMean: 0
-  TimeBeforeStartRange: 0
-  TimeBetweenStompsMean: 1.5
-  TimeBetweenStompsRange: 0.5
-  TotalStepsMean: 10
-  TotalStepsRange: 5
-=======
   TimeBeforeStartMean: 3
   TimeBeforeStartRange: 2
   TimeBetweenStompsMean: 4
   TimeBetweenStompsRange: 0
   TotalStepsMean: 5
   TotalStepsRange: 2
->>>>>>> e5f65791f9cd5540b659be36db15e8b2e81ff21c
   stomping: 0
 --- !u!114 &638375130
 MonoBehaviour:
@@ -608,7 +599,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5b4a99744e3f6f84dabcb6cc4a1c6596, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f2a24adb8f8be4748a32d120dd540091, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -715,11 +706,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4799317120373918, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -40
+      value: -10.22
       objectReference: {fileID: 0}
     - target: {fileID: 4799317120373918, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: 8.01
       objectReference: {fileID: 0}
     - target: {fileID: 4799317120373918, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
       propertyPath: m_LocalPosition.z
