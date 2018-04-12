@@ -7,6 +7,8 @@ public class StompController : MonoBehaviour {
     public AudioClip StompSound;
     public float MinVolume;
     public float MaxVolume;
+    public float TimeBeforeStartMean;
+    public float TimeBeforeStartRange;
     public float TimeBetweenStompsMean;
     public float TimeBetweenStompsRange;
     public int TotalStepsMean;
@@ -14,7 +16,7 @@ public class StompController : MonoBehaviour {
 
     private AudioSource audio;
 
-    private bool stomping;
+    public bool stomping;
     private float timeBetweenStomps;
     private float timeToNextStomp;
     private int stepsRemaining;
@@ -37,18 +39,23 @@ public class StompController : MonoBehaviour {
                 audio.volume = (MaxVolume - audio.volume) / stepsRemaining + audio.volume;
                 audio.Play();
             }
+
+            if (stepsRemaining == 0)
+            {
+                stomping = false;
+            }
         }	
 	}
 
     public void StartStomp()
     {
-        timeBetweenStomps = Random.Range(TimeBetweenStompsMean - TimeBetweenStompsRange / 2.0f, 
-                                         TimeBetweenStompsMean + TimeBetweenStompsRange / 2.0f);
-        stepsRemaining = Mathf.RoundToInt(Random.Range(TotalStepsMean - TotalStepsRange / 2.0f, 
-                                                       TotalStepsMean + TotalStepsRange / 2.0f));
+        timeBetweenStomps = Random.Range(TimeBetweenStompsMean - TimeBetweenStompsRange, 
+                                         TimeBetweenStompsMean + TimeBetweenStompsRange);
+        stepsRemaining = Mathf.RoundToInt(Random.Range(TotalStepsMean - TotalStepsRange, 
+                                                       TotalStepsMean + TotalStepsRange));
 
         stomping = true;
-        timeToNextStomp = 0.0f;
+        timeToNextStomp = Random.Range(TimeBeforeStartMean - TimeBeforeStartRange, TimeBeforeStartMean + TimeBeforeStartRange);
         audio.volume = MinVolume;
     }
 

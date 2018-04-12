@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControllerManager : MonoBehaviour {
 
@@ -24,6 +25,8 @@ public class PlayerControllerManager : MonoBehaviour {
     private Collider2D col;
     private Animator anim;
 
+    private Vector3 startPosition;
+
     public enum State
     {
         GROUNDED,
@@ -42,7 +45,16 @@ public class PlayerControllerManager : MonoBehaviour {
 
         activeController = GetComponent<PlayerController>();
         activeState = State.GROUNDED;
+        startPosition = transform.position;
 	}
+
+    public void GiantApproached()
+    {
+        if (activeState != State.HIDING)
+        {
+            SceneManager.LoadScene("LivingRoom");
+        } 
+    }
 	
 	// Update is called once per frame
 	void Update () {

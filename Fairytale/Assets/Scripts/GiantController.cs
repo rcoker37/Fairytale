@@ -21,10 +21,20 @@ public class GiantController : MonoBehaviour {
         sc = GetComponent<StompController>();
 	}
 
+    private void Update()
+    {
+        if (approaching && !sc.stomping)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllerManager>().GiantApproached();
+            approaching = false;
+        }
+    }
+
 
     public void Smash()
     {
         sc.StartStomp();
+        approaching = true;
     }
 
 
