@@ -10,7 +10,12 @@ public class GroundedPlayerController : PlayerController {
     private bool stoppedRight;
     private bool stoppedLeft;
 
-	
+	private void Start()
+	{
+		base.Start();
+		gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
+	}
+
 	// Update is called once per frame
 	void Update () {
 		/*bool moveRightDown = IsKeySetDown(MoveRightKeySet); 
