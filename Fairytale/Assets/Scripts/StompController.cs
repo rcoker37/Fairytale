@@ -4,26 +4,27 @@ using UnityEngine;
 
 public class StompController : MonoBehaviour {
 
-    public AudioClip StompSound;
-    public float MinVolume;
-    public float MaxVolume;
-    public float TimeBeforeStartMean;
-    public float TimeBeforeStartRange;
-    public float TimeBetweenStompsMean;
-    public float TimeBetweenStompsRange;
-    public int TotalStepsMean;
-    public int TotalStepsRange;
+    public AudioClip stompClip;
+    public float stompVolumeScale;
+
+    private float startVolume;
+    private float endVolume;
+    private float delay;
+    private float timeBetweenStomps;
+    private int totalStomps;
 
     private AudioSource audio;
+    private GiantController gc;
 
     public bool stomping;
-    private float timeBetweenStomps;
+
     private float timeToNextStomp;
     private int stepsRemaining;
 
 	// Use this for initialization
 	void Start () {
         audio = GetComponent<AudioSource>();
+        gc = GetComponent<GiantController>();
 	}
 	
 	// Update is called once per frame
@@ -36,27 +37,30 @@ public class StompController : MonoBehaviour {
                 timeToNextStomp = timeBetweenStomps;
                 stepsRemaining -= 1;
 
-                audio.volume = (MaxVolume - audio.volume) / stepsRemaining + audio.volume;
+                audio.clip = stompClip;
+                audio.volume = (endVolume - audio.volume) / stepsRemaining + audio.volume;
                 audio.Play();
             }
 
             if (stepsRemaining == 0)
             {
                 stomping = false;
+                gc.OnStompSequenceDone();
             }
         }	
 	}
 
-    public void StartStomp()
+    public void StartStompSequence(float delay, float timeBetweenStomps, float startVolume, float endVolume,  int numberOfSteps)
     {
-        timeBetweenStomps = Random.Range(TimeBetweenStompsMean - TimeBetweenStompsRange, 
-                                         TimeBetweenStompsMean + TimeBetweenStompsRange);
-        stepsRemaining = Mathf.RoundToInt(Random.Range(TotalStepsMean - TotalStepsRange, 
-                                                       TotalStepsMean + TotalStepsRange));
+        this.timeBetweenStomps = timeBetweenStomps;
+        this.startVolume = startVolume * stompVolumeScale;
+        this.endVolume = endVolume * stompVolumeScale;
+        stepsRemaining = numberOfSteps;
+
 
         stomping = true;
-        timeToNextStomp = Random.Range(TimeBeforeStartMean - TimeBeforeStartRange, TimeBeforeStartMean + TimeBeforeStartRange);
-        audio.volume = MinVolume;
+        timeToNextStomp = delay;
+        audio.volume = startVolume;
     }
 
     void StopStomp()

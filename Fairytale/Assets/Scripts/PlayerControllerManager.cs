@@ -48,12 +48,15 @@ public class PlayerControllerManager : MonoBehaviour {
         startPosition = transform.position;
 	}
 
-    public void GiantApproached()
+    public void OnGiantApproached()
     {
         if (activeState != State.HIDING)
         {
             SceneManager.LoadScene("LivingRoom");
-        } 
+        } else
+        {
+            GameObject.FindGameObjectWithTag("Giant").GetComponent<GiantController>().WalkAway();
+        }
     }
 	
 	// Update is called once per frame
