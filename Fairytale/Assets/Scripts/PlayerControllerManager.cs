@@ -27,6 +27,8 @@ public class PlayerControllerManager : MonoBehaviour {
 
     private Vector3 startPosition;
 
+    private bool hasPassedHidingSpot;
+
     public enum State
     {
         GROUNDED,
@@ -62,6 +64,12 @@ public class PlayerControllerManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         activeController.enabled = !PlayerControllerDisabled;	
+
+        if (!hasPassedHidingSpot && colMan.CanHide())
+        {
+            hasPassedHidingSpot = true;
+            GameObject.FindGameObjectWithTag("Giant").GetComponent<GiantController>().IdleStomping();
+        }
 	}
 
     private void FixedUpdate()
