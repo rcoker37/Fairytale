@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class GiantController : MonoBehaviour {
 
-    public AudioClip StompingSound;
+    private enum State
+    {
+        APPROACHING,
+        LEAVING,
+        IDLE_STOMPING,
+        SILENT
+    }
 
     private AudioSource audio;
 
-    private bool approaching;
+    private State activeState;
+
     private float volumeDelta;
     private float stompSpeed;
     private float panVelocity;
@@ -23,19 +30,38 @@ public class GiantController : MonoBehaviour {
 
     private void Update()
     {
-        if (approaching && !sc.stomping)
-        {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllerManager>().GiantApproached();
-            approaching = false;
-        }
     }
 
-
-    public void Smash()
+    public void Approach()
     {
-        sc.StartStomp();
-        approaching = true;
+        activeState = State.APPROACHING;
+        sc.StartStompSequence(2.0f, 4.0f, 0.2f, 1.0f, 5);
     }
 
+    public void WalkAway()
+    {
+        activeState = State.LEAVING;
+        sc.StartStompSequence(2.0f, 4.0f, 1.0f, 0.2f, 5);
+    }
 
+    public void IdleStomping()
+    {
+
+    }
+
+    public void OnStompSequenceDone()
+    {
+        switch (activeState)
+        {
+            case State.APPROACHING:
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllerManager>().OnGiantApproached();
+                break;
+            case State.LEAVING:
+                break;
+            case State.IDLE_STOMPING:
+                break;
+            case State.SILENT:
+                break;
+        } 
+    }
 }

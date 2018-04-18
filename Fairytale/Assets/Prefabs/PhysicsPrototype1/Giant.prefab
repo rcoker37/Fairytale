@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4982484903991398}
   - component: {fileID: 82360748075488734}
+  - component: {fileID: 114255451644323998}
   - component: {fileID: 114401246315537762}
   - component: {fileID: 114005981236289670}
   m_Layer: 0
@@ -51,7 +52,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5b4a99744e3f6f84dabcb6cc4a1c6596, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -133,7 +134,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcda013499308ae49b64ef5da05d461b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StompingSound: {fileID: 0}
+--- !u!114 &114255451644323998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1374011197307188}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114401246315537762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,12 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218f0a23b92abba4c842f0a8423c4c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StompSound: {fileID: 8300000, guid: 5b4a99744e3f6f84dabcb6cc4a1c6596, type: 3}
-  MinVolume: 0
-  MaxVolume: 1
-  TimeBeforeStartMean: 5
-  TimeBeforeStartRange: 2
-  TimeBetweenStompsMean: 4
-  TimeBetweenStompsRange: 0
-  TotalStepsMean: 5
-  TotalStepsRange: 2
+  stompClip: {fileID: 8300000, guid: 5b4a99744e3f6f84dabcb6cc4a1c6596, type: 3}
+  stompVolumeScale: 0.5
+  stomping: 0
