@@ -10,7 +10,7 @@ public class PushingPlayerController : PlayerController {
     private Collider2D otherCol;
     private float otherColRelX;
 
-    void Start()
+    protected override void Start()
     {
         base.Start();
         if (colMan.IsColliding(Vector2.right, true, false))
@@ -22,32 +22,17 @@ public class PushingPlayerController : PlayerController {
         }
 
 		float otherX = otherCol.GetComponent<Rigidbody2D>().position.x;
-		int side = otherX < transform.position.x ? 1 : -1;
-        float sideOffset = 0.1f * side;
-
-		otherColRelX = otherX - transform.position.x;// + sideOffset;
+		
+		otherColRelX = otherX - transform.position.x;
+		otherColRelX *= 1.01f;
+		print(otherColRelX);
     }
-
-	// Update is called once per frame
-	void Update () {
-	    /*if (IsKeySetDown(MoveRightKeySet) && !IsKeySetDown(MoveLeftKeySet))
-        {
-            rb.velocity = PushSpeed * Vector2.right;
-        } else if (!IsKeySetDown(MoveRightKeySet) && IsKeySetDown(MoveLeftKeySet))
-        {
-            rb.velocity = PushSpeed * Vector2.left;
-        } else
-        {
-            rb.velocity = Vector2.zero;
-        }*/
-	}
-
+	
     private void FixedUpdate()
     {
         Vector2 otherPos = otherCol.GetComponent<Rigidbody2D>().position;
 		float offset = PushSpeed * Input.GetAxis("Horizontal") * Time.fixedDeltaTime;
 		otherPos.x = transform.position.x + otherColRelX + offset;
-		//otherCol.GetComponent<Rigidbody2D>().position = otherPos;
 		otherCol.GetComponent<Rigidbody2D>().MovePosition(otherPos);
 
 		MoveHorizontal(PushSpeed);

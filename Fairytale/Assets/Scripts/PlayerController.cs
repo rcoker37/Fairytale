@@ -9,7 +9,7 @@ public abstract class PlayerController : MonoBehaviour {
     protected PlayerCollisionManager colMan;
     protected AudioSource audio;
 
-    protected void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
