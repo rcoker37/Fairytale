@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerControllerManager : MonoBehaviour {
 
     public KeyCode[] ClimbKeySet = new KeyCode[] { KeyCode.LeftShift, KeyCode.RightShift };
-    public KeyCode[] PushKeySet = new KeyCode[] { KeyCode.LeftControl, KeyCode.RightControl };
+    public KeyCode[] PushKeySet = new KeyCode[] { KeyCode.P, KeyCode.LeftControl, KeyCode.RightControl };
 	public KeyCode[] HideKeySet = new KeyCode[] { KeyCode.Space };
 
     public bool PlayerControllerDisabled;
