@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class StompController : MonoBehaviour {
 
-    public AudioClip stompClip;
+	private const float SCREEN_SHAKE_TIME = 0.8f;
+	private const float SCREEN_SHAKE_AMOUNT = 0.35f;
+
+	public AudioClip stompClip;
     public float stompVolumeScale;
 
     private float startVolume;
@@ -40,6 +43,8 @@ public class StompController : MonoBehaviour {
                 audio.clip = stompClip;
                 audio.volume = (endVolume - audio.volume) / stepsRemaining + audio.volume;
                 audio.Play();
+
+				StartCoroutine(ScreenShake());
             }
 
             if (stepsRemaining == 0)
@@ -67,5 +72,21 @@ public class StompController : MonoBehaviour {
     {
         stomping = false;
     }
+
+	private IEnumerator ScreenShake()
+	{
+		Vector3 basePos = Camera.main.transform.localPosition;
+		float shakeTime = 0;
+		while (shakeTime < SCREEN_SHAKE_TIME)
+		{
+			Vector2 pos2d = (Vector2)basePos + Random.insideUnitCircle * SCREEN_SHAKE_AMOUNT;
+			Camera.main.transform.localPosition = new Vector3(pos2d.x, pos2d.y, basePos.z);
+
+			shakeTime += Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+
+		Camera.main.transform.localPosition = basePos;
+	}
 
 }
