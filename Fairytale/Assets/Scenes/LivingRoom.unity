@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 3
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -709,11 +709,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4799317120373918, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -35.08
+      value: -16.25
       objectReference: {fileID: 0}
     - target: {fileID: 4799317120373918, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: 7.9
       objectReference: {fileID: 0}
     - target: {fileID: 4799317120373918, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
       propertyPath: m_LocalPosition.z
@@ -738,6 +738,49 @@ Prefab:
     - target: {fileID: 4799317120373918, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114234716233660112, guid: 374b5d51f0e33f842bc15cfea7c00696,
+        type: 2}
+      propertyPath: GrayScaleRadius
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114234716233660112, guid: 374b5d51f0e33f842bc15cfea7c00696,
+        type: 2}
+      propertyPath: GrayScaleRange
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 114234716233660112, guid: 374b5d51f0e33f842bc15cfea7c00696,
+        type: 2}
+      propertyPath: FlickerRate
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4799317120373918, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4799317120373918, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212050407702367408, guid: 374b5d51f0e33f842bc15cfea7c00696,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4ca94a8da0b49434992cb4f5adc57bf4, type: 2}
+    - target: {fileID: 212050407702367408, guid: 374b5d51f0e33f842bc15cfea7c00696,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212050407702367408, guid: 374b5d51f0e33f842bc15cfea7c00696,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212050407702367408, guid: 374b5d51f0e33f842bc15cfea7c00696,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
@@ -1211,7 +1254,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5331836d581f4cc4e991afc734719bf4, type: 3}
-  m_Color: {r: 0.27205884, g: 0.13371168, b: 0.08801904, a: 1}
+  m_Color: {r: 0.27058825, g: 0.13333334, b: 0.08627451, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -7,8 +7,6 @@
 
 		_CenterPositionX("CenterPositionX", float) = 0.0
 		_CenterPositionY("CenterPositionY", float) = 0.0
-
-		_GrayScaleDist("GrayScaleDist", float) = 0.0
 	}
 	SubShader
 	{
@@ -17,6 +15,9 @@
 
 		Pass
 		{
+            ZTest Off
+            Blend SrcAlpha OneMinusSrcAlpha
+
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
@@ -44,7 +45,10 @@
 			fixed4 _Color;
 			float _CenterPositionX;
 			float _CenterPositionY;
+
+            // Globals
 			float _GrayScaleDist;
+            float _FadeMultiplier;
 			
 			v2f vert (appdata v)
 			{
@@ -63,9 +67,13 @@
 				float y = screenPos.y - _CenterPositionY;
 				float dist = sqrt(pow(x, 2) + pow(y, 2));
 				half4 texcol = tex2D(_MainTex, i.uv);
+                half3 grayscale = 0.5 * lerp(texcol.rgb, dot(texcol.rgb, float3(0.3, 0.59, 0.11)), 1.0);
+                float fadeDist = _FadeMultiplier * _GrayScaleDist;
 				if (dist > _GrayScaleDist) {
-					texcol.rgb = 0.5 * lerp(texcol.rgb, dot(texcol.rgb, float3(0.3, 0.59, 0.11)), 1.0);
-				}
+					texcol.rgb = grayscale;
+				} else if (dist > fadeDist) {
+                    texcol.rgb = 1.0 / (_GrayScaleDist - fadeDist) * ((_GrayScaleDist - dist) * (texcol.rgb) + (dist - fadeDist) * grayscale);
+                }
 
 				return texcol;
 			}
