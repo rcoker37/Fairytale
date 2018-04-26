@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4982484903991398}
   - component: {fileID: 82360748075488734}
-  - component: {fileID: 114255451644323998}
   - component: {fileID: 114401246315537762}
   - component: {fileID: 114005981236289670}
   m_Layer: 0
@@ -67,7 +66,7 @@ AudioSource:
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
-  BypassListenerEffects: 0
+  BypassListenerEffects: 1
   BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2
@@ -134,17 +133,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcda013499308ae49b64ef5da05d461b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114255451644323998
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1374011197307188}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  violinAudio: {fileID: 0}
+  TimeBetweenIdleStomps: 15
+  TimeBetweenStomps: 2
+  ApproachDelay: 2
+  ApproachStartVolume: 0.2
+  ApproachEndVolume: 1
+  ApproachSteps: 10
+  LeaveDelay: 5
+  LeaveStartVolume: 0.6
+  LeaveEndVolume: 0.2
+  LeaveSteps: 6
+  IdleDelay: 2
+  IdleStompVolume: 0.1
+  IdleSteps: 4
 --- !u!114 &114401246315537762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,6 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218f0a23b92abba4c842f0a8423c4c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stompClip: {fileID: 8300000, guid: 5b4a99744e3f6f84dabcb6cc4a1c6596, type: 3}
+  stompClip: {fileID: 8300000, guid: cad1d22ebd3514cc9a6f8d2856d2068c, type: 3}
   stompVolumeScale: 0.5
   stomping: 0

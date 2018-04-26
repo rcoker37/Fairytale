@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4002160108001656}
   - component: {fileID: 82506357834781370}
+  - component: {fileID: 114351388810955642}
   m_Layer: 0
   m_Name: AmbientSound
-  m_TagString: Untagged
+  m_TagString: AmbientSound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +50,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cf3a896ee4d897a4ab61cafea5e9b429, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 368259eb0290c31439b3ed53f7199a9f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -120,3 +121,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114351388810955642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1955702399539536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a047c1fc8c3244fb9b609e90ea884827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ambientMusic: {fileID: 8300000, guid: 368259eb0290c31439b3ed53f7199a9f, type: 3}
+  approachMusic: {fileID: 0}
+  caughtMusic: {fileID: 0}

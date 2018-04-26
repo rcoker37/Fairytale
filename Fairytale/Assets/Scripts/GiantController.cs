@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GiantController : MonoBehaviour {
 
+    public AudioClip violinAudio;
+
     private enum State
     {
         APPROACHING,
@@ -14,21 +16,21 @@ public class GiantController : MonoBehaviour {
 
     public float TimeBetweenIdleStomps = 15.0f;
 
-    public float TimeBetweenStomps = 4.0f;
+    public float TimeBetweenStomps = 2.0f;
 
     public float ApproachDelay = 2.0f;
     public float ApproachStartVolume = 0.2f;
     public float ApproachEndVolume = 1.0f;
-    public int ApproachSteps = 5;
+    public int ApproachSteps = 10;
 
-    public float LeaveDelay = 2.0f;
+    public float LeaveDelay = 5.0f;
     public float LeaveStartVolume = 0.6f;
     public float LeaveEndVolume = 0.2f;
-    public int LeaveSteps = 3;
+    public int LeaveSteps = 6;
 
     public float IdleDelay = 2.0f;
     public float IdleStompVolume = 0.1f;
-    public int IdleSteps = 2;
+    public int IdleSteps = 4;
 
     private AudioSource audio;
 
@@ -63,19 +65,24 @@ public class GiantController : MonoBehaviour {
     public void Approach()
     {
         activeState = State.APPROACHING;
+        PlayAudio(violinAudio);
+        GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().setApproaching();
         sc.StartStompSequence(ApproachDelay, TimeBetweenStomps, ApproachStartVolume, ApproachEndVolume, ApproachSteps);
     }
 
     public void WalkAway()
     {
         activeState = State.LEAVING;
+        GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().setAmbient();
         sc.StartStompSequence(LeaveDelay, TimeBetweenStomps, LeaveStartVolume, LeaveEndVolume, LeaveSteps);
     }
 
     public void IdleStomping()
     {
-        activeState = State.IDLE_STOMPING;
-        sc.StartStompSequence(IdleDelay, TimeBetweenStomps, IdleStompVolume, IdleStompVolume, IdleSteps);
+        if (activeState == State.SILENT) {
+            activeState = State.IDLE_STOMPING;
+            sc.StartStompSequence(IdleDelay, TimeBetweenStomps, IdleStompVolume, IdleStompVolume, IdleSteps);
+        }
     }
 
     public void OnStompSequenceDone()
@@ -95,5 +102,10 @@ public class GiantController : MonoBehaviour {
             case State.SILENT:
                 break;
         } 
+    }
+
+    private void PlayAudio(AudioClip clip) {
+        audio.clip = clip;
+        audio.Play();
     }
 }

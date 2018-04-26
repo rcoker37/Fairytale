@@ -43,6 +43,7 @@ public class StompController : MonoBehaviour {
                 audio.clip = stompClip;
                 audio.volume = (endVolume - audio.volume) / stepsRemaining + audio.volume;
                 audio.Play();
+                print(stepsRemaining);
 
 				StartCoroutine(ScreenShake());
             }

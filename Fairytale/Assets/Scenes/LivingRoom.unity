@@ -646,7 +646,48 @@ Prefab:
       propertyPath: m_RootOrder
       value: 17
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 82360748075488734, guid: d0ae6fe621ec1144996f67c377a3bf55,
+        type: 2}
+      propertyPath: BypassListenerEffects
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114005981236289670, guid: d0ae6fe621ec1144996f67c377a3bf55,
+        type: 2}
+      propertyPath: violinAudio
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114401246315537762, guid: d0ae6fe621ec1144996f67c377a3bf55,
+        type: 2}
+      propertyPath: stompClip
+      value: 
+      objectReference: {fileID: 8300000, guid: cad1d22ebd3514cc9a6f8d2856d2068c, type: 3}
+    - target: {fileID: 114005981236289670, guid: d0ae6fe621ec1144996f67c377a3bf55,
+        type: 2}
+      propertyPath: TimeBetweenStomps
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114005981236289670, guid: d0ae6fe621ec1144996f67c377a3bf55,
+        type: 2}
+      propertyPath: ApproachSteps
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114005981236289670, guid: d0ae6fe621ec1144996f67c377a3bf55,
+        type: 2}
+      propertyPath: LeaveSteps
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114005981236289670, guid: d0ae6fe621ec1144996f67c377a3bf55,
+        type: 2}
+      propertyPath: IdleSteps
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114005981236289670, guid: d0ae6fe621ec1144996f67c377a3bf55,
+        type: 2}
+      propertyPath: LeaveDelay
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114255451644323998, guid: d0ae6fe621ec1144996f67c377a3bf55, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d0ae6fe621ec1144996f67c377a3bf55, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &547539938
@@ -1156,6 +1197,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1019444803 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1955702399539536, guid: eef496544eae528449352d18be24573b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1312267359}
+--- !u!114 &1019444806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1019444803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a047c1fc8c3244fb9b609e90ea884827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ambientMusic: {fileID: 8300000, guid: 368259eb0290c31439b3ed53f7199a9f, type: 3}
+  approachMusic: {fileID: 0}
+  caughtMusic: {fileID: 0}
 --- !u!1001 &1312267359
 Prefab:
   m_ObjectHideFlags: 0
@@ -1204,6 +1264,10 @@ Prefab:
         type: 2}
       propertyPath: m_Volume
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1955702399539536, guid: eef496544eae528449352d18be24573b, type: 2}
+      propertyPath: m_TagString
+      value: AmbientSound
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eef496544eae528449352d18be24573b, type: 2}
