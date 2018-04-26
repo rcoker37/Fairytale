@@ -21,16 +21,16 @@ public class GiantController : MonoBehaviour {
     public float ApproachDelay = 2.0f;
     public float ApproachStartVolume = 0.2f;
     public float ApproachEndVolume = 1.0f;
-    public int ApproachSteps = 10;
+    public float[] ApproachSteps = { 8.0f, 3.0f };
 
     public float LeaveDelay = 5.0f;
-    public float LeaveStartVolume = 0.6f;
-    public float LeaveEndVolume = 0.2f;
-    public int LeaveSteps = 6;
+    public float LeaveStartVolume = 0.4f;
+    public float LeaveEndVolume = 0.1f;
+    public float[] LeaveSteps = { 4.0f, 2.0f };
 
     public float IdleDelay = 2.0f;
     public float IdleStompVolume = 0.1f;
-    public int IdleSteps = 4;
+    public float[] IdleSteps = { 3.0f, 1.0f };
 
     private AudioSource audio;
 
@@ -66,22 +66,22 @@ public class GiantController : MonoBehaviour {
     {
         activeState = State.APPROACHING;
         PlayAudio(violinAudio);
-        GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().setApproaching();
-        sc.StartStompSequence(ApproachDelay, TimeBetweenStomps, ApproachStartVolume, ApproachEndVolume, ApproachSteps);
+        GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().setApproaching(0.0f);
+        sc.StartStompSequence(ApproachDelay, TimeBetweenStomps, ApproachStartVolume, ApproachEndVolume, GetRandomInt(ApproachSteps));
     }
 
     public void WalkAway()
     {
         activeState = State.LEAVING;
-        GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().setAmbient();
-        sc.StartStompSequence(LeaveDelay, TimeBetweenStomps, LeaveStartVolume, LeaveEndVolume, LeaveSteps);
+        GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().setAmbient(LeaveDelay);
+        sc.StartStompSequence(LeaveDelay, TimeBetweenStomps, LeaveStartVolume, LeaveEndVolume, GetRandomInt(LeaveSteps));
     }
 
     public void IdleStomping()
     {
         if (activeState == State.SILENT) {
             activeState = State.IDLE_STOMPING;
-            sc.StartStompSequence(IdleDelay, TimeBetweenStomps, IdleStompVolume, IdleStompVolume, IdleSteps);
+            sc.StartStompSequence(IdleDelay, TimeBetweenStomps, IdleStompVolume, IdleStompVolume, GetRandomInt(IdleSteps));
         }
     }
 
@@ -107,5 +107,9 @@ public class GiantController : MonoBehaviour {
     private void PlayAudio(AudioClip clip) {
         audio.clip = clip;
         audio.Play();
+    }
+
+    private int GetRandomInt(float[] dist) {
+        return Mathf.RoundToInt(Random.Range(dist[0] - dist[1], dist[0] + dist[1])); 
     }
 }

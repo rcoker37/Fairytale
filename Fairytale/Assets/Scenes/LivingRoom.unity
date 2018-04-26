@@ -1147,6 +1147,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 114351388810955642, guid: eef496544eae528449352d18be24573b,
+        type: 2}
+      propertyPath: ambientMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: fa05853969f8b4e2eaf144e5297b8a72, type: 3}
+    - target: {fileID: 82506357834781370, guid: eef496544eae528449352d18be24573b,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fa05853969f8b4e2eaf144e5297b8a72, type: 3}
+    - target: {fileID: 114351388810955642, guid: eef496544eae528449352d18be24573b,
+        type: 2}
+      propertyPath: approachMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: aeb371dc67e8f4a45bcbd0d1ef4d7da7, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eef496544eae528449352d18be24573b, type: 2}
   m_IsPrefabParent: 0

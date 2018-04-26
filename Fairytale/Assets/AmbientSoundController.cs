@@ -20,23 +20,23 @@ public class AmbientSoundController : MonoBehaviour {
 		
 	}
 
-    public void setAmbient() {
-        SwitchMusic(ambientMusic); 
+    public void setAmbient(float timeToWait) {
+        SwitchMusic(ambientMusic, timeToWait); 
     }
 
-    public void setApproaching()
+    public void setApproaching(float timeToWait)
     {
-        SwitchMusic(approachMusic); 
+        SwitchMusic(approachMusic, timeToWait); 
     }
 
     public void setCaught()
     {
-        SwitchMusic(caughtMusic); 
+        SwitchMusic(caughtMusic, 0.0f); 
     }
 
-    private void SwitchMusic(AudioClip clip) {
+    private void SwitchMusic(AudioClip clip, float timeToWait) {
         audio.clip = clip;
-        audio.Play();
+        audio.PlayDelayed(timeToWait);
         audio.loop = true;
     }
 }

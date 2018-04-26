@@ -25,8 +25,19 @@ public class PushingPlayerController : PlayerController {
 		otherColRelX *= 1.01f;
 		print(otherColRelX);
     }
-	
-    private void FixedUpdate()
+
+	private void Update()
+	{
+        if (otherColRelX * rb.velocity.x < 0.0f) {
+            anim.SetFloat("Moving", -1.0f);  
+        } else if (rb.velocity.x != 0.0f) {
+            anim.SetFloat("Moving", 1.0f);     
+        } else {
+            anim.SetFloat("Moving", 0.0f);     
+        }
+	}
+
+	private void FixedUpdate()
     {
         Vector2 otherPos = otherCol.GetComponent<Rigidbody2D>().position;
 		float offset = PushSpeed * Input.GetAxis("Horizontal") * Time.fixedDeltaTime;

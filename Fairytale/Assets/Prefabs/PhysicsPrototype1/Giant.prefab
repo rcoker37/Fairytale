@@ -139,14 +139,20 @@ MonoBehaviour:
   ApproachDelay: 2
   ApproachStartVolume: 0.2
   ApproachEndVolume: 1
-  ApproachSteps: 10
+  ApproachSteps:
+  - 8
+  - 3
   LeaveDelay: 5
-  LeaveStartVolume: 0.6
-  LeaveEndVolume: 0.2
-  LeaveSteps: 6
+  LeaveStartVolume: 0.4
+  LeaveEndVolume: 0.1
+  LeaveSteps:
+  - 4
+  - 2
   IdleDelay: 2
   IdleStompVolume: 0.1
-  IdleSteps: 4
+  IdleSteps:
+  - 3
+  - 1
 --- !u!114 &114401246315537762
 MonoBehaviour:
   m_ObjectHideFlags: 1
