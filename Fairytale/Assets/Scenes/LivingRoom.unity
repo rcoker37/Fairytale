@@ -739,54 +739,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114234716233660112, guid: 374b5d51f0e33f842bc15cfea7c00696,
-        type: 2}
-      propertyPath: GrayScaleRadius
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114234716233660112, guid: 374b5d51f0e33f842bc15cfea7c00696,
-        type: 2}
-      propertyPath: GrayScaleRange
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 114234716233660112, guid: 374b5d51f0e33f842bc15cfea7c00696,
-        type: 2}
-      propertyPath: FlickerRate
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799317120373918, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4799317120373918, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212050407702367408, guid: 374b5d51f0e33f842bc15cfea7c00696,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4ca94a8da0b49434992cb4f5adc57bf4, type: 2}
-    - target: {fileID: 212050407702367408, guid: 374b5d51f0e33f842bc15cfea7c00696,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212050407702367408, guid: 374b5d51f0e33f842bc15cfea7c00696,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212050407702367408, guid: 374b5d51f0e33f842bc15cfea7c00696,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114234716233660112, guid: 374b5d51f0e33f842bc15cfea7c00696,
-        type: 2}
-      propertyPath: ShouldFlicker
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
   m_IsPrefabParent: 0
@@ -1731,22 +1683,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &2014114710 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1627192850298252, guid: 374b5d51f0e33f842bc15cfea7c00696,
-    type: 2}
-  m_PrefabInternal: {fileID: 652810031}
---- !u!114 &2014114711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2014114710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e1bfda1ba9c54688a0bc8c235ed92a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2015711122
 GameObject:
   m_ObjectHideFlags: 0

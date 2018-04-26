@@ -38,12 +38,6 @@ AnimationClip:
         outSlope: Infinity
         tangentMode: 103
       - serializedVersion: 2
-        time: 0.43333334
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-      - serializedVersion: 2
         time: 0.6666667
         value: 1
         inSlope: Infinity
@@ -87,10 +81,8 @@ AnimationClip:
     classID: 212
     script: {fileID: 0}
   - curve:
-    - time: 0.11666667
-      value: {fileID: 8300000, guid: 8491bbc4f665f184bbcf8a352243bbe2, type: 3}
-    - time: 0.6666667
-      value: {fileID: 8300000, guid: cbc469ea1457bd24dbc500ecb4ed6812, type: 3}
+    - time: 0
+      value: {fileID: 8300000, guid: 850745691117742579478adb244150d2, type: 3}
     attribute: ActiveAudioClip
     path: 
     classID: 114
@@ -133,8 +125,7 @@ AnimationClip:
     - {fileID: 21300000, guid: da58631e1807f4f11b5a8e83dbae2a42, type: 3}
     - {fileID: 21300000, guid: f3d5a2c6775b747bc9e0712e8c0d48c4, type: 3}
     - {fileID: 21300000, guid: 4ea2f2f4831c943c39e44f92451efba1, type: 3}
-    - {fileID: 8300000, guid: 8491bbc4f665f184bbcf8a352243bbe2, type: 3}
-    - {fileID: 8300000, guid: cbc469ea1457bd24dbc500ecb4ed6812, type: 3}
+    - {fileID: 8300000, guid: 850745691117742579478adb244150d2, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -174,12 +165,6 @@ AnimationClip:
       - serializedVersion: 2
         time: 0.13333334
         value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-      - serializedVersion: 2
-        time: 0.43333334
-        value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103

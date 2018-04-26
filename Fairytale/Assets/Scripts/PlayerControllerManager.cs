@@ -215,11 +215,33 @@ public class PlayerControllerManager : MonoBehaviour {
         switch (activeState)
         {
             case State.GROUNDED:
-                return activeController.IsKeySetDown(ClimbKeySet) &&
-                       (colMan.IsColliding(Vector2.left, false, true) || colMan.IsColliding(Vector2.right, false, true));
+                if (activeController.IsKeySetDown(ClimbKeySet)) {
+                    if (colMan.IsColliding(Vector2.left, false, true)) {
+                        anim.SetFloat("Facing", -1.0f);
+                        return true;
+                    } else if (colMan.IsColliding(Vector2.right, false, true)) {
+                        anim.SetFloat("Facing", 1.0f);
+                        return true;
+                    }
+                }
+
+                return false;
             case State.FALLING:
-                return activeController.IsKeySetDown(ClimbKeySet) &&
-                       (colMan.IsColliding(Vector2.left, false, true) || colMan.IsColliding(Vector2.right, false, true));
+                if (activeController.IsKeySetDown(ClimbKeySet))
+                {
+                    if (colMan.IsColliding(Vector2.left, false, true))
+                    {
+                        anim.SetFloat("Facing", -1.0f);
+                        return true;
+                    }
+                    else if (colMan.IsColliding(Vector2.right, false, true))
+                    {
+                        anim.SetFloat("Facing", 1.0f);
+                        return true;
+                    }
+                }
+
+                return false;
             case State.PUSHING:
                 return false;
             case State.CLIMBING:

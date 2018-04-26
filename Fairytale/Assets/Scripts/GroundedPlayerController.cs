@@ -37,7 +37,7 @@ public class GroundedPlayerController : PlayerController {
             anim.SetBool("Moving", false);
         }*/
 
-		if (rb.velocity.x != 0)
+        if (rb.velocity.x != 0 && !GetComponent<PlayerCollisionManager>().IsColliding(rb.velocity, false, false))
 		{
 			anim.SetFloat("Moving", 1.0f);
             anim.SetFloat("Facing", rb.velocity.x / Mathf.Abs(rb.velocity.x));

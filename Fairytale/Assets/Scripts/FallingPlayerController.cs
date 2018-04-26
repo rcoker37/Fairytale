@@ -10,7 +10,10 @@ public class FallingPlayerController : PlayerController {
     public float MaxFallSpeed = 10.0f;
     public float FallAcceleration = 0.6f;
 
-    private void Update()
+    private float timeToUpdateFace = 0.1f;
+
+
+	private void Update()
     {
         /*bool moveRightDown = IsKeySetDown(MoveRightKeySet); 
         bool moveLeftDown = IsKeySetDown(MoveLeftKeySet); 
@@ -31,6 +34,11 @@ public class FallingPlayerController : PlayerController {
             vel.x = 0.0f;
             rb.velocity = vel;
         }*/
+
+        if (timeToUpdateFace > 0.0f) {
+            timeToUpdateFace -= Time.deltaTime;
+            return;
+        }
 
         if (rb.velocity.x != 0.0f)
         {
