@@ -29,6 +29,8 @@ public class PlayerControllerManager : MonoBehaviour {
 
     private bool hasPassedHidingSpot;
 
+    private bool caught;
+
     public enum State
     {
         GROUNDED,
@@ -60,15 +62,28 @@ public class PlayerControllerManager : MonoBehaviour {
     {
         if (activeState != State.HIDING)
         {
-            SceneManager.LoadScene("LivingRoom");
+            activeController.enabled = false;
+            GetComponentInChildren<GiantFeetController>().Play();
+            caught = true;
         } else
         {
             GameObject.FindGameObjectWithTag("Giant").GetComponent<GiantController>().WalkAway();
         }
     }
-	
+
+	public void Kill()
+	{
+        print("Kill");
+        SceneManager.LoadScene("LivingRoom");
+	}
+
 	// Update is called once per frame
 	void Update () {
+
+        if (caught) {
+            return;
+        }
+
         activeController.enabled = !PlayerControllerDisabled;	
 
         if (!hasPassedHidingSpot && colMan.CanHide())
@@ -160,7 +175,7 @@ public class PlayerControllerManager : MonoBehaviour {
 			case State.HIDING:
 				return !activeController.IsKeySetDown(HideKeySet);
             case State.FROZEN:
-                return ((StartledPlayerController)activeController).frameCount > ((StartledPlayerController)activeController).frameCountTotal;
+                return !caught && ((StartledPlayerController)activeController).frameCount > ((StartledPlayerController)activeController).frameCountTotal;
 			default:
                 return false;
         }
