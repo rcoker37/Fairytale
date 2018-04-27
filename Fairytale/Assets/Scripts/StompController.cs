@@ -82,7 +82,6 @@ public class StompController : MonoBehaviour {
 
 	private IEnumerator ScreenShake(float intensity)
 	{
-		print("shaking " + intensity);
 		Vector3 basePos = Camera.main.transform.localPosition;
 		float shakeTime = 0;
 		while (shakeTime < SCREEN_SHAKE_TIME)
