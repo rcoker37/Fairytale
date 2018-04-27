@@ -10,12 +10,18 @@ public class FallingPlayerController : PlayerController {
     public float MaxFallSpeed = 10.0f;
     public float FallAcceleration = 0.6f;
 
-    public float gaspThreshold = 8.0f;
+    public float gaspFallTime = 0.75f;
 
     private float timeToUpdateFace = 0.1f;
 
-    private bool passedGaspThreshold = false;
+    private float startTime;
 
+
+	private void Start()
+	{
+        base.Start();
+        startTime = Time.time;
+	}
 
 	private void Update()
     {
@@ -48,10 +54,6 @@ public class FallingPlayerController : PlayerController {
         {
             anim.SetFloat("Facing", rb.velocity.x / Mathf.Abs(rb.velocity.x));
         } 
-
-        if (Mathf.Abs(rb.velocity.y) > gaspThreshold) {
-            passedGaspThreshold = true;
-        }
     }
     
     void FixedUpdate () {
@@ -67,10 +69,10 @@ public class FallingPlayerController : PlayerController {
 
 	private void OnDestroy()
 	{
-        if (passedGaspThreshold) {
+        if (Time.time - startTime > gaspFallTime) {
             audio.clip = GetComponent<PlayerSoundController>().GaspAudioClip;
             audio.Play();
-            GameObject.FindGameObjectWithTag("Giant").GetComponent<GiantController>().Approach(0.5f);
+            GameObject.FindGameObjectWithTag("Giant").GetComponent<GiantController>().Approach(0.25f);
         }
 	}
 }

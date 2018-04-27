@@ -18,7 +18,7 @@ public class GiantController : MonoBehaviour {
 
     public float TimeBetweenStomps = 2.0f;
 
-    public float ApproachDelay = 5.0f;
+    public float ApproachDelay = 4.0f;
     public float ApproachStartVolume = 0.2f;
     public float ApproachEndVolume = 1.0f;
     public float[] ApproachSteps = { 8.0f, 3.0f };
@@ -50,6 +50,7 @@ public class GiantController : MonoBehaviour {
         sc = GetComponent<StompController>();
 
         timeUntilNextIdleStomp = TimeBetweenIdleStomps;
+        activeState = State.SILENT;
 	}
 
     private void Update()
@@ -64,6 +65,10 @@ public class GiantController : MonoBehaviour {
 
     public void Approach(float probability)
     {
+        if (activeState == State.APPROACHING) {
+            return;
+        }
+
         GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().turnOffMusic();
         PlayAudio(violinAudio, 0.5f);
 

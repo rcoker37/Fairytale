@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerSoundController : MonoBehaviour {
 
     public AudioClip GaspAudioClip;
+    public AudioClip DraggingAudioClip;
     public bool ShouldPlaySound;
     public AudioClip ActiveAudioClip;
 

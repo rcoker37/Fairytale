@@ -28,11 +28,21 @@ public class PushingPlayerController : PlayerController {
 
 	private void Update()
 	{
+        audio.clip = GetComponent<PlayerSoundController>().DraggingAudioClip;
+        audio.loop = true;
         if (otherColRelX * rb.velocity.x < 0.0f) {
-            anim.SetFloat("Moving", -1.0f);  
+            if (!audio.isPlaying) {
+                audio.Play(); 
+            }
+            anim.SetFloat("Moving", -1.0f);     
         } else if (rb.velocity.x != 0.0f) {
+            if (!audio.isPlaying)
+            {
+                audio.Play();
+            }
             anim.SetFloat("Moving", 1.0f);     
         } else {
+            audio.Stop();
             anim.SetFloat("Moving", 0.0f);     
         }
 	}
@@ -45,6 +55,11 @@ public class PushingPlayerController : PlayerController {
 		otherCol.GetComponent<Rigidbody2D>().MovePosition(otherPos);
 
 		MoveHorizontal(PushSpeed);
+	}
+
+	private void OnDestroy()
+	{
+        audio.loop = false;
 	}
 
 }

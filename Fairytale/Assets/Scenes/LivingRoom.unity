@@ -749,6 +749,11 @@ Prefab:
       propertyPath: GaspAudioClip
       value: 
       objectReference: {fileID: 8300000, guid: 3f9e8730ca2af456aae000b6011031b9, type: 3}
+    - target: {fileID: 114761835886619210, guid: 374b5d51f0e33f842bc15cfea7c00696,
+        type: 2}
+      propertyPath: DraggingAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 697f0775323cd474f9767c8872503ca2, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
   m_IsPrefabParent: 0
