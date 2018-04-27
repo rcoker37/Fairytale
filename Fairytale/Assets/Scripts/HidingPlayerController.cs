@@ -8,6 +8,7 @@ public class HidingPlayerController : PlayerController
 	{
 		base.Start();
 		gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Hiding";
+		colMan.DontShowHiding();
 	}
 
 	void FixedUpdate()

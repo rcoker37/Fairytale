@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HidingSpot
   - Giant
+  - AmbientSound
   layers:
   - Default
   - TransparentFX
@@ -57,4 +58,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3847774725
+    locked: 0
+  - name: UI
+    uniqueID: 1000510569
     locked: 0
