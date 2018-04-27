@@ -69,6 +69,8 @@ public class GiantController : MonoBehaviour {
             return;
         }
 
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllerManager>().Freeze();
+
         GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().turnOffMusic();
         PlayAudio(violinAudio, 0.5f);
 
@@ -118,6 +120,7 @@ public class GiantController : MonoBehaviour {
     private void PlayAudio(AudioClip clip, float delay) {
         audio.clip = clip;
         audio.PlayDelayed(delay);
+        print("Playing");
     }
 
     private int GetRandomInt(float[] dist) {

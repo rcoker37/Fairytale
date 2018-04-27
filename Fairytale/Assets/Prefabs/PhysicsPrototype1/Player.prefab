@@ -359,6 +359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f9dfbb12f5abd4490d49d0427f98ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GaspAudioClip: {fileID: 8300000, guid: 3f9e8730ca2af456aae000b6011031b9, type: 3}
+  DraggingAudioClip: {fileID: 8300000, guid: 697f0775323cd474f9767c8872503ca2, type: 3}
   ShouldPlaySound: 0
   ActiveAudioClip: {fileID: 0}
 --- !u!114 &114787740657685622
@@ -372,6 +374,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e1bfda1ba9c54688a0bc8c235ed92a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  anim: {fileID: 0}
+  colMan: {fileID: 0}
+  audio: {fileID: 0}
 --- !u!114 &114995375636788578
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -36,6 +36,7 @@ public class PlayerControllerManager : MonoBehaviour {
         CLIMBING,
         PUSHING,
 		HIDING,
+        FROZEN,
     }
 
     // Use this for initialization
@@ -49,6 +50,11 @@ public class PlayerControllerManager : MonoBehaviour {
         activeState = State.GROUNDED;
         startPosition = transform.position;
 	}
+
+    public void Freeze()
+    {
+        ChangeState(State.FROZEN);
+    }
 
     public void OnGiantApproached()
     {
@@ -131,8 +137,12 @@ public class PlayerControllerManager : MonoBehaviour {
 			case State.HIDING:
 				activeController = gameObject.AddComponent<HidingPlayerController>();
 				break;
+            case State.FROZEN:
+                activeController = gameObject.AddComponent<StartledPlayerController>();
+                break;
 		}
     }
+
 
     private bool ShouldChangeToGrounded()
     {
@@ -149,6 +159,8 @@ public class PlayerControllerManager : MonoBehaviour {
                 return false;
 			case State.HIDING:
 				return !activeController.IsKeySetDown(HideKeySet);
+            case State.FROZEN:
+                return ((StartledPlayerController)activeController).frameCount > ((StartledPlayerController)activeController).frameCountTotal;
 			default:
                 return false;
         }
