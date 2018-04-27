@@ -16,6 +16,8 @@ public class FallingPlayerController : PlayerController {
 
     private float startTime;
 
+    private float nextFrameFacing;
+
 
 	private void Start()
 	{
@@ -52,8 +54,13 @@ public class FallingPlayerController : PlayerController {
 
         if (rb.velocity.x != 0.0f)
         {
-            anim.SetFloat("Facing", rb.velocity.x / Mathf.Abs(rb.velocity.x));
+            nextFrameFacing = rb.velocity.x / Mathf.Abs(rb.velocity.x);
         } 
+
+        if (nextFrameFacing != 0.0f) {
+            anim.SetFloat("Facing", nextFrameFacing);
+            nextFrameFacing = 0.0f;
+        }
     }
     
     void FixedUpdate () {

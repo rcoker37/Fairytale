@@ -10,6 +10,8 @@ public class GroundedPlayerController : PlayerController {
     private bool stoppedRight;
     private bool stoppedLeft;
 
+    private float timeToUpdateFace = 0.1f;
+
 	private void Start()
 	{
 		base.Start();
@@ -36,6 +38,12 @@ public class GroundedPlayerController : PlayerController {
             rb.velocity = Vector2.zero;
             anim.SetBool("Moving", false);
         }*/
+
+        if (timeToUpdateFace > 0.0f)
+        {
+            timeToUpdateFace -= Time.deltaTime;
+            return;
+        }
 
         if (rb.velocity.x != 0)// && !GetComponent<PlayerCollisionManager>().IsColliding(rb.velocity, false, false))
 		{
