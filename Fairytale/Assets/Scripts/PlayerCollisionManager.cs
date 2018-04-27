@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerCollisionManager : MonoBehaviour {
@@ -61,6 +62,13 @@ public class PlayerCollisionManager : MonoBehaviour {
 		if (collision.gameObject.CompareTag("HidingSpot"))
 		{
 			collision.gameObject.GetComponent<HidingSpot>().canvas.SetActive(true);
+		}
+
+		if (collision.gameObject.CompareTag("NextLevel"))
+		{
+			//TODO set loading screen active
+			int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+			SceneManager.LoadScene(sceneIndex + 1);
 		}
 	}
 
