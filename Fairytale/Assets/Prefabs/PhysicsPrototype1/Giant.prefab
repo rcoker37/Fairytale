@@ -133,10 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcda013499308ae49b64ef5da05d461b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  violinAudio: {fileID: 0}
+  violinAudio: {fileID: 8300000, guid: c41c0af54af3f49f7bbe6ef64bd5926f, type: 3}
   TimeBetweenIdleStomps: 15
   TimeBetweenStomps: 2
-  ApproachDelay: 2
+  ApproachDelay: 5
   ApproachStartVolume: 0.2
   ApproachEndVolume: 1
   ApproachSteps:

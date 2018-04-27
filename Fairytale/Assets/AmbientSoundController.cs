@@ -20,6 +20,10 @@ public class AmbientSoundController : MonoBehaviour {
 		
 	}
 
+    public void turnOffMusic() {
+        audio.Stop();
+    }
+
     public void setAmbient(float timeToWait) {
         SwitchMusic(ambientMusic, timeToWait); 
     }

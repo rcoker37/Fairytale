@@ -646,6 +646,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 114005981236289670, guid: d0ae6fe621ec1144996f67c377a3bf55,
+        type: 2}
+      propertyPath: violinAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 7de57caa694c448b5b17d99303facafa, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0ae6fe621ec1144996f67c377a3bf55, type: 2}
   m_IsPrefabParent: 0
@@ -739,6 +744,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114761835886619210, guid: 374b5d51f0e33f842bc15cfea7c00696,
+        type: 2}
+      propertyPath: GaspAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3f9e8730ca2af456aae000b6011031b9, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
   m_IsPrefabParent: 0

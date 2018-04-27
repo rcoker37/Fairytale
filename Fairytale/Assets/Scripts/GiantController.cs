@@ -18,7 +18,7 @@ public class GiantController : MonoBehaviour {
 
     public float TimeBetweenStomps = 2.0f;
 
-    public float ApproachDelay = 2.0f;
+    public float ApproachDelay = 5.0f;
     public float ApproachStartVolume = 0.2f;
     public float ApproachEndVolume = 1.0f;
     public float[] ApproachSteps = { 8.0f, 3.0f };
@@ -62,12 +62,18 @@ public class GiantController : MonoBehaviour {
         }
     }
 
-    public void Approach()
+    public void Approach(float probability)
     {
-        activeState = State.APPROACHING;
-        PlayAudio(violinAudio);
-        GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().setApproaching(0.0f);
-        sc.StartStompSequence(ApproachDelay, TimeBetweenStomps, ApproachStartVolume, ApproachEndVolume, GetRandomInt(ApproachSteps));
+        GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().turnOffMusic();
+        PlayAudio(violinAudio, 0.5f);
+
+        if (Random.Range(0.0f, 1.0f) <= probability) {
+            activeState = State.APPROACHING;
+            GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().setApproaching(3.0f);
+            sc.StartStompSequence(ApproachDelay, TimeBetweenStomps, ApproachStartVolume, ApproachEndVolume, GetRandomInt(ApproachSteps));
+        } else {
+            GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().setAmbient(3.0f);
+        }
     }
 
     public void WalkAway()
@@ -104,9 +110,9 @@ public class GiantController : MonoBehaviour {
         } 
     }
 
-    private void PlayAudio(AudioClip clip) {
+    private void PlayAudio(AudioClip clip, float delay) {
         audio.clip = clip;
-        audio.Play();
+        audio.PlayDelayed(delay);
     }
 
     private int GetRandomInt(float[] dist) {

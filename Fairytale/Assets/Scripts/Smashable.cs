@@ -47,7 +47,7 @@ public class Smashable : MonoBehaviour {
         audio.Play();
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
-        GameObject.FindGameObjectWithTag("Giant").GetComponent<GiantController>().Approach();
+        GameObject.FindGameObjectWithTag("Giant").GetComponent<GiantController>().Approach(1.0f);
         deathQueued = true;
 	}
 	
