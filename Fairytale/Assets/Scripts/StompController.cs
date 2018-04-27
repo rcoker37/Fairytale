@@ -39,13 +39,19 @@ public class StompController : MonoBehaviour {
             {
                 timeToNextStomp = timeBetweenStomps;
                 stepsRemaining -= 1;
+				
+				float intensity = (endVolume - audio.volume) / stepsRemaining + audio.volume;
+				if (stepsRemaining == 0)
+				{
+					intensity = endVolume;
+				}
 
-                audio.clip = stompClip;
-                audio.volume = (endVolume - audio.volume) / stepsRemaining + audio.volume;
+				audio.clip = stompClip;
+				audio.volume = intensity;
                 audio.Play();
                 print(stepsRemaining);
 
-				StartCoroutine(ScreenShake());
+				StartCoroutine(ScreenShake(intensity));
             }
 
             if (stepsRemaining == 0)
@@ -74,13 +80,14 @@ public class StompController : MonoBehaviour {
         stomping = false;
     }
 
-	private IEnumerator ScreenShake()
+	private IEnumerator ScreenShake(float intensity)
 	{
+		print("shaking " + intensity);
 		Vector3 basePos = Camera.main.transform.localPosition;
 		float shakeTime = 0;
 		while (shakeTime < SCREEN_SHAKE_TIME)
 		{
-			Vector2 pos2d = (Vector2)basePos + Random.insideUnitCircle * SCREEN_SHAKE_AMOUNT;
+			Vector2 pos2d = (Vector2)basePos + Random.insideUnitCircle * SCREEN_SHAKE_AMOUNT * intensity;
 			Camera.main.transform.localPosition = new Vector3(pos2d.x, pos2d.y, basePos.z);
 
 			shakeTime += Time.deltaTime;
