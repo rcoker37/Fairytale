@@ -9,7 +9,7 @@ public class GiantFeetController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        GetComponent<Animator>().SetFloat("Facing", -1.0f);	
 	}
 	
 	// Update is called once per frame
@@ -28,4 +28,8 @@ public class GiantFeetController : MonoBehaviour {
 	{
         GetComponent<Animator>().SetBool("Play", true);
 	}
+
+    public void SwitchSides() {
+        GetComponent<Animator>().SetFloat("Facing", -1.0f * GetComponent<Animator>().GetFloat("Facing"));
+    }
 }
