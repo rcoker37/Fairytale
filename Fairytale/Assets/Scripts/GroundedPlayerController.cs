@@ -39,6 +39,7 @@ public class GroundedPlayerController : PlayerController {
 
         if (rb.velocity.x != 0 && !GetComponent<PlayerCollisionManager>().IsColliding(rb.velocity, false, false))
 		{
+			//TODO: still do this if the collided object is a hiding trigger (or other trigger?)
 			anim.SetFloat("Moving", 1.0f);
             anim.SetFloat("Facing", rb.velocity.x / Mathf.Abs(rb.velocity.x));
 		}

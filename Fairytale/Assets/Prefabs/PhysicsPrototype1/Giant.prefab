@@ -165,5 +165,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stompClip: {fileID: 8300000, guid: cad1d22ebd3514cc9a6f8d2856d2068c, type: 3}
-  stompVolumeScale: 0.5
+  stompVolumeScale: 1
   stomping: 0
