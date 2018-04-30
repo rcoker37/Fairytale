@@ -1681,12 +1681,17 @@ Prefab:
         type: 2}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 368259eb0290c31439b3ed53f7199a9f, type: 3}
+      objectReference: {fileID: 8300000, guid: 1f450280b6ada4bc3865548d6f6f6121, type: 3}
     - target: {fileID: 82506357834781370, guid: eef496544eae528449352d18be24573b,
         type: 2}
       propertyPath: m_Volume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114351388810955642, guid: eef496544eae528449352d18be24573b,
+        type: 2}
+      propertyPath: ambientMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f450280b6ada4bc3865548d6f6f6121, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eef496544eae528449352d18be24573b, type: 2}
   m_IsPrefabParent: 0
@@ -2329,6 +2334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f61ff16d4df8f640ac20597c8927dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AtCheckpoint: 0
 --- !u!82 &2014237750
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2422,6 +2428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f61ff16d4df8f640ac20597c8927dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AtCheckpoint: 0
 --- !u!61 &2014237752
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2466,6 +2473,7 @@ MonoBehaviour:
   PlayerControllerDisabled: 0
   ClimbDeltaX: 1
   ClimbDeltaY: 1
+  activeState: 0
 --- !u!114 &2014237754
 MonoBehaviour:
   m_ObjectHideFlags: 0
