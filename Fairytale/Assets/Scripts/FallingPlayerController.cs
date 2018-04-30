@@ -79,7 +79,9 @@ public class FallingPlayerController : PlayerController {
         if (Time.time - startTime > gaspFallTime) {
             audio.clip = GetComponent<PlayerSoundController>().GaspAudioClip;
             audio.Play();
-            GameObject.FindGameObjectWithTag("Giant").GetComponent<GiantController>().Approach(0.25f);
+            if (colMan.AtGiantFallZone) {
+                GameObject.FindGameObjectWithTag("Giant").GetComponent<GiantController>().Approach(1.00f);
+            }
         }
 	}
 }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerCollisionManager : MonoBehaviour {
 
     public bool AtCheckpoint;
+    public bool AtGiantFallZone;
 
 	private readonly ContactPoint2D[] contactPointBuffer = new ContactPoint2D[1024];
 
@@ -77,6 +78,11 @@ public class PlayerCollisionManager : MonoBehaviour {
             AtCheckpoint = true;
         }
 
+        if (collision.gameObject.CompareTag("GiantFallZone"))
+        {
+            AtGiantFallZone = true;
+        }
+
 		if (collision.gameObject.CompareTag("NextLevel"))
 		{
 			//TODO set loading screen active
@@ -96,6 +102,11 @@ public class PlayerCollisionManager : MonoBehaviour {
 
         if (collision.gameObject.CompareTag("Checkpoint")){
             AtCheckpoint = false; 
+        }
+
+        if (collision.gameObject.CompareTag("GiantFallZone"))
+        {
+            AtGiantFallZone = false;
         }
 
 		if (collision.gameObject.CompareTag("Tutorial"))

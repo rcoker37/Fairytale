@@ -10,6 +10,7 @@ TagManager:
   - NextLevel
   - Tutorial
   - Checkpoint
+  - GiantFallZone
   layers:
   - Default
   - TransparentFX
