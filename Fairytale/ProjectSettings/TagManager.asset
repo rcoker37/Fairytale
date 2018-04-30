@@ -8,6 +8,7 @@ TagManager:
   - Giant
   - AmbientSound
   - NextLevel
+  - Tutorial
   layers:
   - Default
   - TransparentFX

@@ -61,7 +61,13 @@ public class PlayerCollisionManager : MonoBehaviour {
 
 		if (collision.gameObject.CompareTag("HidingSpot"))
 		{
+			//TODO: do this for grounded only (gotta keep checking)
 			collision.gameObject.GetComponent<HidingSpot>().canvas.SetActive(true);
+		}
+
+		if (collision.gameObject.CompareTag("Tutorial"))
+		{
+			collision.gameObject.GetComponent<TutorialText>().canvas.SetActive(true);
 		}
 
 		if (collision.gameObject.CompareTag("NextLevel"))
@@ -79,6 +85,11 @@ public class PlayerCollisionManager : MonoBehaviour {
 		if (collision.gameObject.CompareTag("HidingSpot"))
 		{
 			collision.gameObject.GetComponent<HidingSpot>().canvas.SetActive(false);
+		}
+
+		if (collision.gameObject.CompareTag("Tutorial"))
+		{
+			collision.gameObject.GetComponent<TutorialText>().canvas.SetActive(false);
 		}
 	}
 
