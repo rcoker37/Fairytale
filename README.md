@@ -35,4 +35,4 @@ Run the provided .exe file. Make sure the UnityPlayer.dll file and the _data fol
 - Sound:
   - David Baratt
 
-Font credit: Im Wunderland by Chequered Ink- https://www.dafont.com/im-wunderland.font
+Font credit: The Skinny by Jusebox- https://www.dafont.com/the-skinny.font
