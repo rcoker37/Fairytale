@@ -60,6 +60,7 @@ public class PushingPlayerController : PlayerController {
 	private void OnDestroy()
 	{
         audio.loop = false;
+        audio.Stop();
 	}
 
 }
