@@ -25,7 +25,7 @@ public class PlayerControllerManager : MonoBehaviour {
     private Collider2D col;
     private Animator anim;
 
-    private Vector3 startPosition;
+    private static Vector3 respawnPosition;
 
     private bool hasPassedHidingSpot;
 
@@ -50,7 +50,11 @@ public class PlayerControllerManager : MonoBehaviour {
 
         activeController = GetComponent<PlayerController>();
         activeState = State.GROUNDED;
-        startPosition = transform.position;
+        if (respawnPosition == null || (respawnPosition.x == 0.0f && respawnPosition.y == 0.0f)) {
+            respawnPosition = transform.position;
+        } else {
+            transform.position = respawnPosition; 
+        }
 	}
 
     public void Freeze()
@@ -142,6 +146,9 @@ public class PlayerControllerManager : MonoBehaviour {
         {
             case State.GROUNDED:
                 activeController = gameObject.AddComponent<GroundedPlayerController>();
+                if (colMan.AtCheckpoint) {
+                    respawnPosition = transform.position;
+                }
                 break;
             case State.FALLING:
                 activeController = gameObject.AddComponent<FallingPlayerController>();

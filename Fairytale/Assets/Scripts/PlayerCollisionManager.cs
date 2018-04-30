@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerCollisionManager : MonoBehaviour {
 
+    public bool AtCheckpoint;
+
 	private readonly ContactPoint2D[] contactPointBuffer = new ContactPoint2D[1024];
 
 	private Collider2D col;
@@ -70,6 +72,11 @@ public class PlayerCollisionManager : MonoBehaviour {
 			collision.gameObject.GetComponent<TutorialText>().canvas.SetActive(true);
 		}
 
+        if (collision.gameObject.CompareTag("Checkpoint"))
+        {
+            AtCheckpoint = true;
+        }
+
 		if (collision.gameObject.CompareTag("NextLevel"))
 		{
 			//TODO set loading screen active
@@ -86,6 +93,10 @@ public class PlayerCollisionManager : MonoBehaviour {
 		{
 			collision.gameObject.GetComponent<HidingSpot>().canvas.SetActive(false);
 		}
+
+        if (collision.gameObject.CompareTag("Checkpoint")){
+            AtCheckpoint = false; 
+        }
 
 		if (collision.gameObject.CompareTag("Tutorial"))
 		{

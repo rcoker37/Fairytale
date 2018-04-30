@@ -9,6 +9,7 @@ TagManager:
   - AmbientSound
   - NextLevel
   - Tutorial
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

@@ -95,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1627192850298252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.34, y: 8.03, z: 0}
+  m_LocalPosition: {x: -44, y: -0.488, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4325830066839244}
@@ -449,6 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f61ff16d4df8f640ac20597c8927dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AtCheckpoint: 0
 --- !u!114 &114321269703708200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -473,6 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f61ff16d4df8f640ac20597c8927dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AtCheckpoint: 0
 --- !u!114 &114747559146545576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -485,11 +487,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClimbKeySet: 300100002f010000
-  PushKeySet: 700000003201000031010000
+  PushKeySet: 7a0000003201000031010000
   HideKeySet: 20000000
   PlayerControllerDisabled: 0
   ClimbDeltaX: 1
   ClimbDeltaY: 1
+  activeState: 0
 --- !u!114 &114761835886619210
 MonoBehaviour:
   m_ObjectHideFlags: 1
