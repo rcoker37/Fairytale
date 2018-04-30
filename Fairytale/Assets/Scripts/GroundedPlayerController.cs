@@ -16,6 +16,7 @@ public class GroundedPlayerController : PlayerController {
 	{
 		base.Start();
 		gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
+		colMan.ShowHiding(true);
 	}
 
 	// Update is called once per frame

@@ -15,7 +15,8 @@ public abstract class PlayerController : MonoBehaviour {
         anim = GetComponent<Animator>();
         colMan = GetComponent<PlayerCollisionManager>();
         audio = GetComponent<AudioSource>();
-    }
+		colMan.ShowHiding(false);
+	}
 
     public bool IsKeySetDown(KeyCode[] keySet)
     {

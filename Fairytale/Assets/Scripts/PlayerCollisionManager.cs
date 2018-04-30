@@ -59,9 +59,9 @@ public class PlayerCollisionManager : MonoBehaviour {
 		//otherCols.Add(collision, transform.position - collision.bounds.center);
 		otherCols[collision] = transform.position - collision.bounds.center;
 
-		if (collision.gameObject.CompareTag("HidingSpot"))
+		bool grounded = gameObject.GetComponent<PlayerControllerManager>().activeState == PlayerControllerManager.State.GROUNDED;
+		if (collision.gameObject.CompareTag("HidingSpot") && grounded)
 		{
-			//TODO: do this for grounded only (gotta keep checking)
 			collision.gameObject.GetComponent<HidingSpot>().canvas.SetActive(true);
 		}
 
@@ -93,17 +93,17 @@ public class PlayerCollisionManager : MonoBehaviour {
 		}
 	}
 
-	public void DontShowHiding()
+	public void ShowHiding(bool show)
 	{
 		foreach (Collider2D col in otherCols.Keys)
 		{
 			if (col.gameObject.CompareTag("HidingSpot"))
 			{
-				col.gameObject.GetComponent<HidingSpot>().canvas.SetActive(false);
+				col.gameObject.GetComponent<HidingSpot>().canvas.SetActive(show);
 			}
 		}
 	}
-
+	
 	private float NormalDot(ContactPoint2D contact)
 	{
 		Vector2 normal = contact.normal;

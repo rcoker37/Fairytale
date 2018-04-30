@@ -17,7 +17,7 @@ public class PlayerControllerManager : MonoBehaviour {
 	private static readonly int CONTACT_BUFFER_SIZE = 1024;
     private readonly ContactPoint2D[] contactBuffer = new ContactPoint2D[CONTACT_BUFFER_SIZE];
 
-    private State activeState;
+    public State activeState;
     private PlayerController activeController;
     private PlayerCollisionManager colMan;
 
