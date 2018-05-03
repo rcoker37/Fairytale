@@ -52,6 +52,11 @@ public class StompController : MonoBehaviour {
                 print(stepsRemaining);
 
 				StartCoroutine(ScreenShake(intensity));
+
+                if (stepsRemaining == 2)
+                {
+                    
+                }
             }
 
             if (stepsRemaining == 0)

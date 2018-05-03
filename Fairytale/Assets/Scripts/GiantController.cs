@@ -77,7 +77,7 @@ public class GiantController : MonoBehaviour {
         if (Random.Range(0.0f, 1.0f) <= probability) {
             activeState = State.APPROACHING;
             GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().setApproaching(3.0f);
-            sc.StartStompSequence(ApproachDelay, TimeBetweenStomps, ApproachStartVolume, ApproachEndVolume, GetRandomInt(ApproachSteps));
+            GameObject.FindGameObjectWithTag("GiantFeet").GetComponent<GiantFeetController>().Play(true);
         } else {
             GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().setAmbient(3.0f);
         }
@@ -106,7 +106,6 @@ public class GiantController : MonoBehaviour {
         switch (oldState)
         {
             case State.APPROACHING:
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllerManager>().OnGiantApproached();
                 break;
             case State.LEAVING:
                 break;

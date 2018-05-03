@@ -62,25 +62,15 @@ public class PlayerControllerManager : MonoBehaviour {
         ChangeState(State.FROZEN);
     }
 
-    public void OnGiantApproached()
-    {
-        activeController.enabled = false;
-        GetComponentInChildren<GiantFeetController>().SwitchSides();
-        GetComponentInChildren<GiantFeetController>().Play();
-        if (activeState != State.HIDING)
-        {
-            caught = true;
-        }
-    }
 
 	public void Kill()
 	{
         print("Kill");
-        if (caught) {
-            SceneManager.LoadScene("LivingRoom");
-        } else {
-            activeController.enabled = true;
-            GameObject.FindGameObjectWithTag("Giant").GetComponent<GiantController>().WalkAway();
+        GetComponentInChildren<GiantFeetController>().Caught(activeState != State.HIDING);
+        GetComponentInChildren<GiantFeetController>().Play(false);
+        GetComponentInChildren<GiantFeetController>().SwitchSides();
+        if (activeState != State.HIDING) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 	}
 
