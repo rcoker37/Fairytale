@@ -31,6 +31,11 @@ public class PlayerControllerManager : MonoBehaviour {
 
     private bool caught;
 
+    private Vector2 climbingPosition;
+
+    public bool climbingOverLedge;
+    public bool DoneClimbing;
+
     public enum State
     {
         GROUNDED,
@@ -82,6 +87,21 @@ public class PlayerControllerManager : MonoBehaviour {
             return;
         }
 
+        if (DoneClimbing)
+        {
+            climbingOverLedge = false;
+            DoneClimbing = false;
+            rb.position = climbingPosition;
+            col.enabled = false;
+            col.enabled = true;
+        }
+
+        if (climbingOverLedge) {
+            activeController.enabled = false;
+            return;
+        }
+
+
         activeController.enabled = !PlayerControllerDisabled;	
 
         if (!hasPassedHidingSpot && colMan.CanHide())
@@ -93,6 +113,13 @@ public class PlayerControllerManager : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        if (climbingOverLedge)
+        {
+            activeController.enabled = false;
+            rb.velocity = Vector2.zero;
+            return;
+        }
+
         CheckForStateChange();
     }
 
@@ -192,20 +219,28 @@ public class PlayerControllerManager : MonoBehaviour {
             case State.PUSHING:
                 return !colMan.IsGrounded();
             case State.CLIMBING:
-                if (colMan.IsColliding(Vector2.left, false, true) && colMan.GetColliding(Vector2.left, false, true).bounds.max.y < col.bounds.center.y)
+                if (colMan.IsColliding(Vector2.left, false, true) && colMan.GetColliding(Vector2.left, false, true).bounds.max.y - 0.5f < col.bounds.center.y)
                 {
 
-                    rb.position = new Vector2(colMan.GetColliding(Vector2.left, false, true).bounds.max.x - col.bounds.extents.x,
-                                              colMan.GetColliding(Vector2.left, false, true).bounds.max.y + col.bounds.extents.y);
-                    col.enabled = false;
-                    col.enabled = true;
+                    climbingPosition = new Vector2(colMan.GetColliding(Vector2.left, false, true).bounds.max.x - col.bounds.extents.x,
+                                              colMan.GetColliding(Vector2.left, false, true).bounds.max.y + col.bounds.extents.y + 0.7f);
+                    Vector2 pos = transform.position;
+                    pos.x -= 1.0f;
+                    pos.y += 0.3f;
+                    transform.position = pos;
+
+                    climbingOverLedge = true;
                     return true;
-                } else if (colMan.IsColliding(Vector2.right, false, true) && colMan.GetColliding(Vector2.right, false, true).bounds.max.y < col.bounds.center.y)
+                } else if (colMan.IsColliding(Vector2.right, false, true) && colMan.GetColliding(Vector2.right, false, true).bounds.max.y - 0.5f < col.bounds.center.y)
                 {
-                    rb.position = new Vector2(colMan.GetColliding(Vector2.right, false, true).bounds.min.x + col.bounds.extents.x,
-                                              colMan.GetColliding(Vector2.right, false, true).bounds.max.y + col.bounds.extents.y);
-                    col.enabled = false;
-                    col.enabled = true;
+                    climbingPosition = new Vector2(colMan.GetColliding(Vector2.right, false, true).bounds.min.x + col.bounds.extents.x,
+                                              colMan.GetColliding(Vector2.right, false, true).bounds.max.y + col.bounds.extents.y + 0.7f);
+                    Vector2 pos = transform.position;
+                    pos.x += 1.0f;
+                    pos.y += 0.3f;
+                    transform.position = pos;
+
+                    climbingOverLedge = true;
                     return true;
                 } else
                 {

@@ -19,9 +19,8 @@ public class FallingPlayerController : PlayerController {
     private float nextFrameFacing;
 
 
-	private void Start()
+	private void OnEnable()
 	{
-        base.Start();
         startTime = Time.time;
 	}
 
