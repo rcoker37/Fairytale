@@ -6,8 +6,10 @@ public class GiantFeetController : MonoBehaviour {
     private const float SCREEN_SHAKE_TIME = 0.8f;
     private const float SCREEN_SHAKE_AMOUNT = 0.35f;
 
+    public float Y = 0.0f;
     public bool ShouldPlaySound;
     public bool ShouldKill;
+    public bool Playing;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +26,14 @@ public class GiantFeetController : MonoBehaviour {
         if (ShouldKill) {
             GetComponentInParent<PlayerControllerManager>().Kill();
         }
+
+	}
+
+	private void LateUpdate()
+	{
+        Vector3 pos = transform.position;
+        pos.y = Y - transform.parent.position.y;
+        transform.position = pos;
 	}
 
 	public void Play(bool shouldPlay) 

@@ -65,7 +65,7 @@ public class GiantController : MonoBehaviour {
 
     public void Approach(float probability)
     {
-        if (activeState == State.APPROACHING) {
+        if (GameObject.FindGameObjectWithTag("GiantFeet").GetComponent<GiantFeetController>().Playing) {
             return;
         }
 
@@ -73,6 +73,7 @@ public class GiantController : MonoBehaviour {
 
         GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().turnOffMusic();
         PlayAudio(violinAudio, 0.5f);
+        sc.StopStomp();
 
         if (Random.Range(0.0f, 1.0f) <= probability) {
             activeState = State.APPROACHING;

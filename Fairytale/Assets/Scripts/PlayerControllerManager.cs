@@ -69,6 +69,7 @@ public class PlayerControllerManager : MonoBehaviour {
         GetComponentInChildren<GiantFeetController>().Caught(activeState != State.HIDING);
         GetComponentInChildren<GiantFeetController>().Play(false);
         GetComponentInChildren<GiantFeetController>().SwitchSides();
+        GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().setAmbient(5.0f);
         if (activeState != State.HIDING) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

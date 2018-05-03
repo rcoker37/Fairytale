@@ -52,11 +52,6 @@ public class StompController : MonoBehaviour {
                 print(stepsRemaining);
 
 				StartCoroutine(ScreenShake(intensity));
-
-                if (stepsRemaining == 2)
-                {
-                    
-                }
             }
 
             if (stepsRemaining == 0)
@@ -80,7 +75,7 @@ public class StompController : MonoBehaviour {
         audio.volume = startVolume;
     }
 
-    void StopStomp()
+    public void StopStomp()
     {
         stomping = false;
     }

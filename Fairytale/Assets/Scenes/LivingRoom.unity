@@ -1056,6 +1056,35 @@ Prefab:
       propertyPath: m_TagString
       value: GiantFeet
       objectReference: {fileID: 0}
+    - target: {fileID: 212464261261433294, guid: 374b5d51f0e33f842bc15cfea7c00696,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 212464261261433294, guid: 374b5d51f0e33f842bc15cfea7c00696,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908446289839342, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 212464261261433294, guid: 374b5d51f0e33f842bc15cfea7c00696,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -447192571
+      objectReference: {fileID: 0}
+    - target: {fileID: 212464261261433294, guid: 374b5d51f0e33f842bc15cfea7c00696,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114321269703708200, guid: 374b5d51f0e33f842bc15cfea7c00696,
+        type: 2}
+      propertyPath: Y
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 374b5d51f0e33f842bc15cfea7c00696, type: 2}
   m_IsPrefabParent: 0
