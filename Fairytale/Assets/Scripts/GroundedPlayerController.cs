@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GroundedPlayerController : PlayerController {
     public KeyCode[] MoveRightKeySet = new KeyCode[] { KeyCode.RightArrow, KeyCode.D };
@@ -39,8 +40,18 @@ public class GroundedPlayerController : PlayerController {
             rb.velocity = Vector2.zero;
             anim.SetBool("Moving", false);
         }*/
+		if (Input.GetKeyDown(KeyCode.N))
+		{
+			int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+			SceneManager.LoadScene(sceneIndex + 1);
+		}
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+			SceneManager.LoadScene(sceneIndex);
+		}
 
-        if (timeToUpdateFace > 0.0f)
+		if (timeToUpdateFace > 0.0f)
         {
             timeToUpdateFace -= Time.deltaTime;
             return;
