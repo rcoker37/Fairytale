@@ -12,6 +12,7 @@ TagManager:
   - Checkpoint
   - GiantFallZone
   - GiantFeet
+  - Blender
   layers:
   - Default
   - TransparentFX

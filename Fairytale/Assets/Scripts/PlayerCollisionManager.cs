@@ -83,6 +83,11 @@ public class PlayerCollisionManager : MonoBehaviour {
             AtGiantFallZone = true;
         }
 
+		if (collision.gameObject.CompareTag("Blender"))
+		{
+			collision.gameObject.GetComponent<Blender>().Activate();
+		}
+
 		if (collision.gameObject.CompareTag("NextLevel"))
 		{
 			//TODO set loading screen active
