@@ -229,7 +229,7 @@ public class PlayerControllerManager : MonoBehaviour {
                     anim.SetFloat("ClimbingOverLedge", 1.0f);
 
                     climbingPosition = new Vector2(colMan.GetColliding(Vector2.left, false, true).bounds.max.x - col.bounds.extents.x,
-                                              colMan.GetColliding(Vector2.left, false, true).bounds.max.y + col.bounds.extents.y + 0.5f);
+                                              colMan.GetColliding(Vector2.left, false, true).bounds.max.y + col.bounds.extents.y + 1.0f);
                     Vector2 pos = transform.position;
                     col.enabled = false;
                     rb.velocity = Vector2.zero;
@@ -241,7 +241,7 @@ public class PlayerControllerManager : MonoBehaviour {
                     anim.SetFloat("ClimbingOverLedge", 1.0f);
 
                     climbingPosition = new Vector2(colMan.GetColliding(Vector2.right, false, true).bounds.min.x + col.bounds.extents.x,
-                                              colMan.GetColliding(Vector2.right, false, true).bounds.max.y + col.bounds.extents.y + 0.5f);
+                                              colMan.GetColliding(Vector2.right, false, true).bounds.max.y + col.bounds.extents.y + 1.0f);
                     col.enabled = false;
                     rb.velocity = Vector2.zero;
 
