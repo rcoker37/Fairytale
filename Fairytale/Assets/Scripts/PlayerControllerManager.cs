@@ -54,6 +54,7 @@ public class PlayerControllerManager : MonoBehaviour {
         anim = GetComponent<Animator>();
 
         anim.SetFloat("ClimbingOverLedge", -1.0f);
+        anim.SetBool("DoneClimbing", false);
 
         activeController = GetComponent<PlayerController>();
         activeState = State.GROUNDED;
@@ -223,29 +224,26 @@ public class PlayerControllerManager : MonoBehaviour {
             case State.PUSHING:
                 return !colMan.IsGrounded();
             case State.CLIMBING:
-                if (colMan.IsColliding(Vector2.left, false, true) && colMan.GetColliding(Vector2.left, false, true).bounds.max.y - 0.5f < col.bounds.center.y)
+                if (colMan.IsColliding(Vector2.left, false, true) && colMan.GetColliding(Vector2.left, false, true).bounds.max.y - 0.8f < col.bounds.center.y)
                 {
                     anim.SetFloat("ClimbingOverLedge", 1.0f);
 
                     climbingPosition = new Vector2(colMan.GetColliding(Vector2.left, false, true).bounds.max.x - col.bounds.extents.x,
-                                              colMan.GetColliding(Vector2.left, false, true).bounds.max.y + col.bounds.extents.y + 0.7f);
+                                              colMan.GetColliding(Vector2.left, false, true).bounds.max.y + col.bounds.extents.y + 0.5f);
                     Vector2 pos = transform.position;
-                    pos.x -= 1.0f;
-                    pos.y += 0.3f;
-                    transform.position = pos;
+                    col.enabled = false;
+                    rb.velocity = Vector2.zero;
 
                     climbingOverLedge = true;
                     return true;
-                } else if (colMan.IsColliding(Vector2.right, false, true) && colMan.GetColliding(Vector2.right, false, true).bounds.max.y - 0.5f < col.bounds.center.y)
+                } else if (colMan.IsColliding(Vector2.right, false, true) && colMan.GetColliding(Vector2.right, false, true).bounds.max.y - 0.8f < col.bounds.center.y)
                 {
                     anim.SetFloat("ClimbingOverLedge", 1.0f);
 
                     climbingPosition = new Vector2(colMan.GetColliding(Vector2.right, false, true).bounds.min.x + col.bounds.extents.x,
-                                              colMan.GetColliding(Vector2.right, false, true).bounds.max.y + col.bounds.extents.y + 0.7f);
-                    Vector2 pos = transform.position;
-                    pos.x += 1.0f;
-                    pos.y += 0.3f;
-                    transform.position = pos;
+                                              colMan.GetColliding(Vector2.right, false, true).bounds.max.y + col.bounds.extents.y + 0.5f);
+                    col.enabled = false;
+                    rb.velocity = Vector2.zero;
 
                     climbingOverLedge = true;
                     return true;
