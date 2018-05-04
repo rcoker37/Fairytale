@@ -46,6 +46,8 @@ public class FallingPlayerController : PlayerController {
             rb.velocity = vel;
         }*/
 
+        print("falling");
+
         if (timeToUpdateFace > 0.0f) {
             timeToUpdateFace -= Time.deltaTime;
             return;
