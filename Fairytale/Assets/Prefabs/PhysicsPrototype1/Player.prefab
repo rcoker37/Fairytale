@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114321269703708200}
   m_Layer: 0
   m_Name: GiantFeet
-  m_TagString: Untagged
+  m_TagString: GiantFeet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1627192850298252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -44, y: -0.488, z: 0}
+  m_LocalPosition: {x: -12.66, y: 10.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4325830066839244}
@@ -110,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1302010470434156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8331671, y: 2.5392246, z: -0.23695199}
+  m_LocalPosition: {x: 0.8331671, y: -5, z: -0.23695199}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4799317120373918}
@@ -450,6 +450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AtCheckpoint: 0
+  AtGiantFallZone: 0
 --- !u!114 &114321269703708200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -461,8 +462,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b7e6df186d74928b37c7b16df07844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Y: 10
   ShouldPlaySound: 0
   ShouldKill: 0
+  Playing: 0
 --- !u!114 &114641886377892052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -475,6 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AtCheckpoint: 0
+  AtGiantFallZone: 0
 --- !u!114 &114747559146545576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -493,6 +497,8 @@ MonoBehaviour:
   ClimbDeltaX: 1
   ClimbDeltaY: 1
   activeState: 0
+  climbingOverLedge: 0
+  DoneClimbing: 0
 --- !u!114 &114761835886619210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -604,15 +610,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -447192571
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 38.4, y: 21.6}
+  m_Size: {x: 30, y: 30}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
