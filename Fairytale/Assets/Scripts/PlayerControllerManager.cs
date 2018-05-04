@@ -54,7 +54,7 @@ public class PlayerControllerManager : MonoBehaviour {
         anim = GetComponent<Animator>();
 
         anim.SetFloat("ClimbingOverLedge", -1.0f);
-        anim.SetBool("DoneClimbing", false);
+        //anim.SetBool("DoneClimbing", false);
 
         activeController = GetComponent<PlayerController>();
         activeState = State.GROUNDED;
