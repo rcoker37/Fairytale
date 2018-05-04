@@ -6,8 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 4cef600ffb08b41d492e9469a43568d9
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: c5223ed0ad7b61545bd4db2d8282070d
+  - enabled: 1
+    path: Assets/Scenes/Intro2.unity
+    guid: be69c772a075bda4ba720b433bd63073
+  - enabled: 1
+    path: Assets/Scenes/Intro3.unity
+    guid: a88bec81eeb96ef4a88d5c483280eed3
+  - enabled: 1
     path: Assets/Scenes/LivingRoom.unity
     guid: 92409124a2776a1468396e4da556a972
   - enabled: 1
     path: Assets/Scenes/Kitchen.unity
     guid: e63b244b065c6a54a9ebd26b51c9ed15
+  - enabled: 1
+    path: Assets/Scenes/Outro.unity
+    guid: b8991931dc9cc984bb7f344795f537c9
