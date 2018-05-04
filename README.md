@@ -10,6 +10,11 @@ Run the provided .exe file. Make sure the UnityPlayer.dll file and the _data fol
 
 ## Release Notes ##
 
+- Final:
+  - More readable object interactions
+  - Bugs fixed
+  - Kitchen art
+
 - Beta:
   - Second level
   - Darkness shader

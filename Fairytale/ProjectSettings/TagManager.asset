@@ -52,6 +52,9 @@ TagManager:
   - name: Background
     uniqueID: 2762885769
     locked: 0
+  - name: Floor
+    uniqueID: 129199303
+    locked: 0
   - name: Midground
     uniqueID: 3097978467
     locked: 0
