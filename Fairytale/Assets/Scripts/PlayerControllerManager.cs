@@ -77,11 +77,22 @@ public class PlayerControllerManager : MonoBehaviour {
         GetComponentInChildren<GiantFeetController>().Caught(activeState != State.HIDING);
         GetComponentInChildren<GiantFeetController>().Play(false);
         GetComponentInChildren<GiantFeetController>().SwitchSides();
-        GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().setAmbient(5.0f);
         if (activeState != State.HIDING) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Destroy(transform.GetChild(2).gameObject);
+            GetComponentInChildren<Arm>().Appear();
+        } else {
+            GameObject.FindGameObjectWithTag("AmbientSound").GetComponent<AmbientSoundController>().setAmbient(5.0f);
         }
 	}
+
+    public void Disappear() {
+        GetComponent<CandleController>().ShouldFlicker = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    public void Restart() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
 	// Update is called once per frame
 	void Update () {
